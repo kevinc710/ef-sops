@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>📋 Ellison & Fitz — VA SOPs</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,8 +23,8 @@
     --danger: #dc2626;
     --danger-light: #fef2f2;
     --radius: 10px;
-    --font: 'Inter', sans-serif;
-    --mono: 'JetBrains Mono', monospace;
+    --font: "Inter", sans-serif;
+    --mono: "JetBrains Mono", monospace;
   }
 
   body {
@@ -398,394 +398,55 @@ The Ellison & Fitz Team</div>
       <ol>
         <li>Go to Products → Gift Cards</li>
         <li>Click "Issue gift card"</li>
-        <li>Enter exact product subtotal</li>
-        <li>Associate with customer's email</li>
-        <li>Add internal note: <em>"Issued store credit for $[amount] instead of refund. Customer agreed via email on [DATE]. Credit for product subtotal only."</em></li>
-      </ol>
-      <p style="margin-top: 10px;"><strong>❌ Do NOT:</strong> create a discount code, process a manual refund, or use a draft order workaround.</p>
-    </div>
-    <div class="template-label">Template — Store Credit Confirmation</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thanks for confirming.
-
-Your store credit in the amount of $[XX.XX] (representing the product subtotal) has now been issued to your account. This credit will be applied automatically to your next purchase and does not expire.
-
-We appreciate your understanding and look forward to seeing you again soon.
-
-Best,
-The Ellison & Fitz Team</div>
-  </div>
-
-  <!-- ─── SECTION: RETURNS (REDO) ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📦</span>
-      <span class="section-title">Returns &amp; Exchanges (Redo)</span>
-      <span class="section-badge updated">Live April 27</span>
-    </div>
-    <div class="alert green" style="margin-bottom: 16px;">
-      <span class="alert-icon">✅</span>
-      <div>Redo handles everything end-to-end: portal, labels, inspection, grading, refunds, and restocking. <strong>You do not generate labels manually.</strong></div>
-    </div>
-    <div class="card">
-      <h3>30-Day Return Policy</h3>
-      <ul>
-        <li>30 days from <strong>delivery date</strong> to request</li>
-        <li>Items must be unused, unworn, unwashed</li>
-        <li>No odors, stains, or visible wear</li>
-        <li>All original packaging must be returned intact (branded poly bag, thank you card, inserts)</li>
-        <li>Order number and confirmation email required</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Who pays for return shipping?</h3>
-      <div class="rule-row">
-        <span class="rule-icon">✅</span>
-        <div><strong>Checkout+ customers:</strong> Get a prepaid return label through the Redo portal — we cover it.</div>
-      </div>
-      <div class="rule-row">
-        <span class="rule-icon">💰</span>
-        <div><strong>Non-Checkout+ customers:</strong> Customer pays return shipping — UNLESS item was received damaged, defective, or incorrect (we cover it).</div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Deprecated — do not use</h3>
-      <p>❌ Return Helper &nbsp;|&nbsp; ❌ Stripe $15 payment links &nbsp;|&nbsp; ❌ Manual label generation</p>
-    </div>
-  </div>
-
-  <!-- ─── SECTION: WISMO ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🔍</span>
-      <span class="section-title">WISMO — Where Is My Order? (SOP v1.1)</span>
-    </div>
-    <div class="card">
-      <h3>Tracking link</h3>
-      <p>✅ <strong>Always use:</strong> <a href="https://ellisonandfitz.com/apps/parcelpanel" style="color: var(--accent);">ellisonandfitz.com/apps/parcelpanel</a><br>
-      ❌ <strong>Never use:</strong> 17track.net</p>
-    </div>
-    <div class="card">
-      <h3>Steps</h3>
-      <ol>
-        <li>Find the order in Shopify by email or order number</li>
-        <li>Copy the tracking number from the fulfilled order</li>
-        <li>Reply in Commslayer with the template below — always include both the tracking number AND the ParcelPanel link</li>
-        <li>If no movement for 5+ days after first expected scan → escalate to <strong>#alerts-ops</strong></li>
+        <li>Enter exact product subtotal as value</li>
+        <li>Email gift card to customer</li>
+        <li>Add internal note: <em>"Store credit issued per SOP. Customer agreed in writing."</em></li>
       </ol>
     </div>
-    <div class="template-label">Template — WISMO Reply</div>
+    <div class="template-label">Template — Store Credit Offer</div>
     <div class="template-block">Hi [Customer Name],
 
-Thanks for reaching out! Your order is on its way.
+We understand your situation. As an alternative to a refund, we can offer you store credit for the full product subtotal of $[Amount]. This credit can be used on any future purchase at Ellison & Fitz.
 
-You can track your package directly on our website here:
-https://ellisonandfitz.com/apps/parcelpanel
-
-Your tracking number is: [Insert Tracking Number]
-
-Please note it can take 24-48 hours for tracking to update after the carrier scans the package.
-
-Let us know if you have any other questions!
-
-Best,
-The Ellison & Fitz Team</div>
-    <div class="template-label">Template — International Fulfillment (customer questions shipping times)</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thank you for reaching out. We understand your expectation for delivery timing, and we appreciate the opportunity to clarify.
-
-At the time your order was placed, this item was not available in our local warehouse. To avoid long backorder delays, your order was fulfilled through one of our international fulfillment centers. We ship worldwide and use multiple locations to ensure orders are processed as efficiently as possible when local stock is unavailable.
-
-Because of this, the estimated delivery time for this shipment is typically around 5–12 business days once dispatched. Delivery times may vary slightly depending on carrier handling and customs processing.
-
-We appreciate your patience, and you can track your order anytime using the tracking link provided in your shipping confirmation.
-
-If you have any other questions, we're happy to help.
-
-Best regards,
-Tina M.
-Ellison & Fitz Support Team
-support@ellisonandfitz.com</div>
-    <div class="alert yellow" style="margin-top: 12px; margin-bottom: 0;">
-      <span class="alert-icon">⚠️</span>
-      <div><strong>Key rules:</strong> Never say "China" or name specific countries. Frame as "international fulfillment center." If customer wants to cancel before shipment → offer full refund. If upset but willing to wait → offer ELLISON10 (10%).</div>
-    </div>
-  </div>
-
-  <!-- ─── SECTION: SOURCING MESSAGING ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🏭</span>
-      <span class="section-title">Sourcing &amp; Manufacturing Messaging (SOP 5)</span>
-    </div>
-    <div class="alert red" style="margin-bottom: 16px;">
-      <span class="alert-icon">🚫</span>
-      <div><strong>Absolute rules:</strong> Never mention "China" or "Made in China." Never confirm specific manufacturing countries. Never discuss factory locations, suppliers, or dropshipping.</div>
-    </div>
-    <div class="card">
-      <h3>Approved language</h3>
-      <div class="rule-row">
-        <span class="rule-icon">📌</span>
-        <div><strong>Product origin questions:</strong> "We are a U.S.-rooted brand that works with a curated team of global supply and manufacturing partners to bring our designs to life."</div>
-      </div>
-      <div class="rule-row">
-        <span class="rule-icon">📌</span>
-        <div><strong>Shipping/transit questions:</strong> "Our logistics network includes global partners to ensure we can ship to our customers worldwide. Sometimes this means transit times vary depending on where the inventory is currently housed."</div>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Decision flow</h3>
-      <ol>
-        <li>General brand question → Default Response Template</li>
-        <li>Shipping time / location question → Shipping Questions Template</li>
-        <li>"Is this made in China?" → Direct Country Inquiry Template</li>
-        <li>Customer presses again → Re-use same template, slightly rephrased. No new info.</li>
-        <li>Third press or becomes accusatory → <span class="escalate">🚨 Escalate</span> to Kevin or Leandro immediately</li>
-      </ol>
-    </div>
-    <div class="template-label">Template — General Brand Inquiry</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thanks for asking! We're a U.S.-rooted brand defined by detail and designed for life. We work with a dedicated team of global supply and manufacturing partners to create high-quality products, and we're confident you'll feel the difference.
-
-Let us know if you have any other questions!
-
-Best,
-The Ellison & Fitz Team</div>
-    <div class="template-label">Template — "Is this made in China?"</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thanks for reaching out. We are a U.S.-rooted brand and we work with a variety of global manufacturing partners who are experts in their craft. We focus on ensuring the highest standards of quality and materials rather than on the geography of any single partner.
-
-We're confident you'll be impressed with the quality and detail.
+Please let us know if you would like to proceed with store credit, and we will issue it immediately.
 
 Best,
 The Ellison & Fitz Team</div>
   </div>
 
-  <!-- ─── SECTION: SIZING ─── -->
+  <!-- ─── SECTION: CHARGEBACKS ─── -->
   <div class="section">
     <div class="section-header">
-      <span class="section-icon">📐</span>
-      <span class="section-title">Sizing Guidance &amp; Exchanges (SOP 6)</span>
-    </div>
-
-    <div class="card">
-      <h3>Step 1 — Pre-purchase sizing inquiries</h3>
-      <ol>
-        <li>Refer the customer to the <strong>"Size Chart" link on the product page</strong></li>
-        <li>If <strong>no size chart is available</strong> → check with the supplier to verify sizing before responding. Do not guess.</li>
-        <li>If customer is <strong>between sizes</strong>:
-          <ul style="margin-top: 6px;">
-            <li>Recommend <strong>sizing UP</strong> for a more relaxed fit</li>
-            <li>Recommend <strong>sizing DOWN</strong> for a compression fit</li>
-            <li>If unsure which applies to that collection → check with the supplier for their recommendation before advising</li>
-          </ul>
-        </li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>Step 2 — Exchange requests</h3>
-      <p style="margin-bottom: 10px;"><strong>Eligibility:</strong> Item must be unworn, unwashed, and in original packaging.</p>
-      <ol>
-        <li>Confirm eligibility (30 days from delivery, unworn, original packaging)</li>
-        <li>Direct the customer to the <strong>Redo portal</strong> to initiate the return</li>
-        <li>Once the return is tracked in Redo → issue store credit or process the new size shipment</li>
-        <li>Add Shopify internal note: <em>"Sizing exchange processed from [Size] to [Size] via Redo portal."</em></li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>Rules</h3>
-      <div class="rule-row"><span class="rule-icon">✅</span><div>Be generous — especially with first-time customers</div></div>
-      <div class="rule-row"><span class="rule-icon">✅</span><div>Use "manufacturer sizing" for non-standard sizing — never "Chinese sizing"</div></div>
-      <div class="rule-row"><span class="rule-icon">✅</span><div>When in doubt on fit advice → check with supplier before responding</div></div>
-      <div class="rule-row"><span class="rule-icon">❌</span><div>Never blame the customer or say "you ordered the wrong size"</div></div>
-      <div class="rule-row"><span class="rule-icon">🚨</span><div>3rd exchange request or continued frustration → escalate to manager for full refund review</div></div>
-    </div>
-
-    <div class="template-label">Template — Pre-Purchase Sizing Inquiry</div>
-    <div class="template-block">Hi [Customer Name],
-
-Great question! You can find the size chart directly on the product page — there's a "Size Chart" link that will show you all measurements.
-
-If you're between sizes, here's our general guidance:
-• Size UP for a more relaxed, comfortable fit
-• Size DOWN for a more fitted or compression feel
-
-[Add any collection-specific fit notes here if confirmed with supplier]
-
-Let me know if you have any other questions — happy to help you find the right size!
-
-Best,
-The Ellison & Fitz Team</div>
-
-    <div class="template-label">Template — Exchange Request</div>
-    <div class="template-block">Hi [Customer Name],
-
-I'm so sorry to hear the [Product Name] didn't fit as expected — we can absolutely help you with an exchange.
-
-To get started, please use our returns portal here:
-https://ellisonandfitz.com/[redo-portal-link]
-
-Once your return is on its way and tracked, we'll get your new size processed right away. Items must be unworn, unwashed, and in their original packaging.
-
-Let us know if you run into any issues with the portal!
-
-Best,
-The Ellison & Fitz Team</div>
-  </div>
-
-  <!-- ─── SECTION: POST-PURCHASE DISCOUNT ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🏷️</span>
-      <span class="section-title">Post-Purchase Discount Requests (SOP 3)</span>
-    </div>
-    <div class="card">
-      <h3>Core rule <span class="tag">non-negotiable</span></h3>
-      <p>We do <strong>not</strong> retroactively apply promo codes to completed orders. Pricing is final once an order is paid.</p>
-    </div>
-    <div class="card">
-      <h3>Approved alternatives</h3>
-      <div class="rule-row"><span class="rule-icon">1️⃣</span><div><strong>Store credit (preferred):</strong> Offer credit for the value of the requested discount. Valid for 60 days.</div></div>
-      <div class="rule-row"><span class="rule-icon">2️⃣</span><div><strong>Partial refund (secondary):</strong> One-time goodwill gesture of 5–10% of product subtotal only.</div></div>
-      <div class="rule-row"><span class="rule-icon">3️⃣</span><div><strong>Polite decline:</strong> If the request doesn't meet goodwill criteria.</div></div>
-    </div>
-    <div class="template-label">Template — Polite Decline</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thanks for reaching out. Our system locks in pricing at checkout, so we're unable to apply discounts retroactively once an order has been completed.
-
-We appreciate your understanding and hope to offer you a great promotion on a future order.
-
-Best,
-The Ellison & Fitz Team</div>
-  </div>
-
-  <!-- ─── SECTION: HIGH-RISK REFUND PROTOCOL ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🚨</span>
-      <span class="section-title">High-Risk Refund (HRR) Protocol (SOP 4)</span>
-    </div>
-    <div class="card">
-      <h3>5 HRR triggers — initiate protocol if ANY apply</h3>
-      <div class="rule-row"><span class="rule-icon">⚠️</span><div><strong>Double Defect:</strong> Claiming a second defect on a replacement already sent for a previous defect</div></div>
-      <div class="rule-row"><span class="rule-icon">⚠️</span><div><strong>Conditional Framing:</strong> "I'll remove my review if you refund me" or similar</div></div>
-      <div class="rule-row"><span class="rule-icon">⚠️</span><div><strong>Repeated Behavior:</strong> 3+ refund/claim history from the same customer in 12 months</div></div>
-      <div class="rule-row"><span class="rule-icon">⚠️</span><div><strong>Pressure Tactics:</strong> Threats of legal action, public complaints, or social media shaming</div></div>
-      <div class="rule-row"><span class="rule-icon">⚠️</span><div><strong>Inconsistent Evidence:</strong> Photos/explanations that are contradictory or appear manipulated</div></div>
-    </div>
-    <div class="card">
-      <h3>5-Stage protocol</h3>
-      <ol>
-        <li><strong>Contain:</strong> Acknowledge and reassure — do not admit fault or promise an outcome</li>
-        <li><strong>Document:</strong> Tag order in Shopify (e.g., <code>HRR-PressureTactics</code>) and log in the Master Sheet</li>
-        <li><strong>Investigate:</strong> Collect order history, communications, evidence, tracking, delivery photos</li>
-        <li><strong>Decide:</strong> Apply the decision matrix below</li>
-        <li><strong>Log:</strong> Add detailed internal Shopify note and update Google Sheet with final resolution</li>
-      </ol>
-    </div>
-    <div class="card" style="overflow-x: auto;">
-      <h3>Decision matrix</h3>
-      <table class="sop-table">
-        <thead><tr><th>Trigger</th><th>Situation</th><th>Action</th></tr></thead>
-        <tbody>
-          <tr><td>Double Defect</td><td>Clear photo/video evidence of both defects</td><td>Approve one final replacement (no refund)</td></tr>
-          <tr><td>Double Defect</td><td>Suspicious</td><td>Decline</td></tr>
-          <tr><td>Conditional Framing</td><td>Links refund to review removal</td><td>Decline refund condition; offer core resolution; Escalate</td></tr>
-          <tr><td>Repeated Behavior</td><td>3+ claims in 12 months</td><td>Decline; flag account; Escalate to manager</td></tr>
-          <tr><td>Pressure Tactics</td><td>Legal threats or public shaming</td><td>Decline while under duress; use containment template; Escalate immediately</td></tr>
-          <tr><td>Inconsistent Evidence</td><td>Story changes or evidence staged</td><td>Decline; request clearer info; Escalate if hostile</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="alert red" style="margin-top: 12px; margin-bottom: 0;">
-      <span class="alert-icon">🚨</span>
-      <div><strong>Absolute rules:</strong> Never send a third shipment. Never refund shipping in HRR. Never close without a Shopify tag + note + Google Sheet entry. Any case unsure, hostile, or over $200 → escalate before communicating resolution.</div>
-    </div>
-    <div class="template-label">Template — Initial Containment</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thank you for reaching out and bringing this to our attention. My name is Tina, and I'm reviewing your case personally.
-
-To ensure we address this properly, I am gathering all the details regarding your order. I will get back to you with an update within 24 hours.
-
-We appreciate your patience.
-
-Best,
-Tina M.
-Ellison & Fitz Support</div>
-    <div class="template-label">Template — Final Decline</div>
-    <div class="template-block">Hi [Customer Name],
-
-Thank you for your patience while we conducted a full review of your case, including all the information and evidence provided.
-
-After a thorough investigation, we have determined that the request does not fall within our standard return and refund policy guidelines. Therefore, we are unable to approve a refund for this order.
-
-We have documented this case and consider this decision final.
-
-Sincerely,
-The Ellison & Fitz Team</div>
-  </div>
-
-  <!-- ─── SECTION: GOOD FAITH HIGH-VALUE DISPUTES ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📦</span>
-      <span class="section-title">Good Faith High-Value Dispute Protocol (SOP 7)</span>
-    </div>
-    <div class="card">
-      <h3>When this applies — ALL must be true</h3>
-      <ul>
-        <li>Customer claims an item is missing from their delivered package</li>
-        <li>Total order value is <strong>$100 or more</strong></li>
-        <li>We have verified <strong>packing video evidence</strong> showing item was packed</li>
-        <li>Customer shows NO HRR triggers — if they do, switch to SOP 4</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Resolution tiers</h3>
-      <div class="rule-row"><span class="rule-icon">📦</span><div><strong>Tier 1 ($100–$299):</strong> Send replacement of missing item + discount code. Do not require anything from customer.</div></div>
-      <div class="rule-row"><span class="rule-icon">🚨</span><div><strong>Tier 2 ($300+):</strong> <span class="escalate">Escalate to Kevin or Leandro</span> before communicating any resolution.</div></div>
-    </div>
-    <div class="card">
-      <h3>AI (Commslayer) rule</h3>
-      <p>The AI agent is <strong>NOT authorized</strong> to resolve high-value missing item claims. If the order is $100+, Commslayer must hand off to human agent immediately. AI must not promise a replacement or refund.</p>
-    </div>
-    <div class="card">
-      <h3>Required documentation</h3>
-      <ul>
-        <li>Tag order: <code>Missing-Item-Replaced</code></li>
-        <li>Add Shopify note with full summary of claim, video verification, and action taken</li>
-      </ul>
-    </div>
-    <div class="alert red" style="margin-top: 12px; margin-bottom: 0;">
-      <span class="alert-icon">🚫</span>
-      <div>Never accuse the customer of lying. Frame video evidence as something reviewed internally — not as proof against them. Never send a replacement without first verifying the video.</div>
-    </div>
-  </div>
-
-  <!-- ─── SECTION: UNRESPONSIVE / DAMAGED CLAIMS ─── -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📋</span>
-      <span class="section-title">Unresponsive Customers &amp; Damaged/Missing Claims (SOP 8)</span>
+      <span class="section-icon">🛡️</span>
+      <span class="section-title">Chargebacks (SOP 3)</span>
       <span class="section-badge updated">Updated May 28</span>
     </div>
     <div class="card">
-      <h3>Follow-up timeline</h3>
-      <div class="rule-row"><span class="rule-icon">📅</span><div><strong>Day 1:</strong> First outreach — ask for details or evidence needed</div></div>
-      <div class="rule-row"><span class="rule-icon">📅</span><div><strong>Day 3 (no response):</strong> Send ONE polite follow-up reminder</div></div>
-      <div class="rule-row"><span class="rule-icon">📅</span><div><strong>Day 7 (still no response):</strong> Close the ticket per closure rules below</div></div>
+      <h3>Core rule <span class="tag">automated</span></h3>
+      <p>All chargebacks are automatically handled by <strong>Chargeflow</strong>. Do not respond to chargeback emails directly from Shopify. Chargeflow will automatically pull all necessary data (tracking, order history, customer communication) and submit a dispute on our behalf.</p>
     </div>
     <div class="card">
-      <h3>Damaged / Missing / Incomplete shipment — investigation required</h3>
-      <p style="margin-bottom: 10px;"><strong>Core rule:</strong> Do not issue any refund, replacement, or resolution based on an email claim alone. Always go through the investigation process first.</p>
+      <h3>Your role</h3>
+      <ul>
+        <li>Monitor Chargeflow dashboard daily for new cases</li>
+        <li>Ensure Chargeflow has all necessary info (sometimes it needs a specific email or screenshot)</li>
+        <li>Escalate to Kevin or Leandro if a case seems unusual or requires manual intervention</li>
+      </ul>
+    </div>
+    <div class="tool-grid" style="margin-top: 12px;">
+      <div class="tool-card"><div class="tool-name">Chargeflow Dashboard</div><div class="tool-desc">Primary tool for all chargeback monitoring and management</div></div>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: LOST/DAMAGED/HRR ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📦</span>
+      <span class="section-title">Lost, Damaged, or "Did Not Receive" (HRR)</span>
+    </div>
+    <div class="card">
+      <h3>Core rule <span class="tag">investigate first</span></h3>
+      <p>Never issue a refund, replacement, or resolution based on an email claim alone. Always go through the investigation process first.</p>
       <p>Request from the customer:</p>
       <ul style="margin-top: 6px;">
         <li>Clear photos of the package exterior, including any damage</li>
@@ -806,24 +467,106 @@ The Ellison & Fitz Team</div>
     </div>
     <div class="template-label">Template — Damaged/Missing Shipment Investigation</div>
     <div class="template-block">Hi [Customer Name],
-
 Thank you for your follow-up.
-
 We understand your concern and take claims involving damaged, missing, or incomplete shipments seriously. However, we are unable to issue a refund solely based on an email claim without first completing our standard investigation process.
-
 At this time, we are reviewing the shipment details with our fulfillment and carrier records. To continue the investigation, please provide:
-
 • Clear photos of the package exterior, including any damage
 • Photos of the shipping label
 • Photos of all sides of the packaging
 • Photos of all contents received
-
 Once we receive this information, we will review the claim promptly and determine the appropriate resolution based on the findings.
-
 We appreciate your cooperation and patience while this process is completed.
-
 Best regards,
 Ellison & Fitz Support</div>
+  </div>
+
+  <!-- ─── SECTION: FOUNDER'S CURRICULUM (DETAILED MODULES) ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🎓</span>
+      <span class="section-title">Founder's Curriculum (Detailed Modules)</span>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 1: EVOLVE (START HERE)</h3>
+      <ul>
+        <li><strong>Status:</strong> Foundation Course</li>
+        <li><strong>Video Lessons:</strong> Folder 1: EVOLVE MAIN COURSE</li>
+        <li><strong>Key Topics:</strong> Market Desires | Market Awareness | Market Sophistication</li>
+        <li><strong>Key Resources:</strong> Market Research Framework | Positioning Template | Customer Avatar Worksheet</li>
+        <li><strong>Focus:</strong> Foundation framework for understanding market dynamics and customer psychology.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 2: EVOLVE COPYWRITING (NEW)</h3>
+      <ul>
+        <li><strong>Status:</strong> Advanced Copywriting & AI Integration</li>
+        <li><strong>Video Lessons:</strong> Folder 2: Evolve Copywriting (NEW)</li>
+        <li><strong>Key Topics:</strong> Copywriting Fundamentals | AI Prompting Frameworks | Ad Copy Optimization | Email Sequences</li>
+        <li><strong>Key Resources:</strong> Copywriting Toolkit | AI Prompting Frameworks | Swipe File (100+ proven ad copies)</li>
+        <li><strong>Focus:</strong> Advanced copywriting techniques for ad creative, landing pages, and email sequences.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 3: EVOLVE SUPPLY CHAIN PROGRAM</h3>
+      <ul>
+        <li><strong>Status:</strong> Operational Excellence</li>
+        <li><strong>Video Lessons:</strong> Folder 3: EVOLVE SUPPLY CHAIN PROGRAM</li>
+        <li><strong>Key Topics:</strong> Supplier Vetting & Due Diligence | Manufacturing Optimization | Quality Control | Logistics & Fulfillment</li>
+        <li><strong>Key Resources:</strong> Due Diligence Slides | Sourcing Checklist | Supplier Scorecard</li>
+        <li><strong>Focus:</strong> Manufacturer vetting, quality control, and logistics optimization.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 4: EVOLVE FINANCE</h3>
+      <ul>
+        <li><strong>Status:</strong> Financial Mastery</li>
+        <li><strong>Video Lessons:</strong> Folder 4: Evolve Finance</li>
+        <li><strong>Key Topics:</strong> LTV Modeling | Unit Economics | Scaling Logic | Break-Even Analysis</li>
+        <li><strong>Key Resources:</strong> LTV Modeling Template (Excel) | Break-Even Calculator | Financial Dashboard</li>
+        <li><strong>Scaling Logic:</strong> Use the "Break-Even + 1x" rule for setting media buying targets.</li>
+        <li><strong>Focus:</strong> Unit economics, pricing strategy, and profitability frameworks.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 5: EVOLVE Q4 STRATEGY</h3>
+      <ul>
+        <li><strong>Status:</strong> Seasonal & Growth Strategy</li>
+        <li><strong>Video Lessons:</strong> Folder 8: 2025 EVOLVE Q4 STRATEGY</li>
+        <li><strong>Key Topics:</strong> Q4 Market Trends | Holiday Campaign Planning | Promotional Strategy | Inventory Management</li>
+        <li><strong>Key Resources:</strong> Canva Ad Templates (Q4 Collection) | VIP Lead Gen Calculator | Q4 Strategy Document</li>
+        <li><strong>Focus:</strong> Seasonal scaling, holiday campaigns, and peak revenue optimization.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 6: TEAM BUILDING, SYSTEMS, HIRING</h3>
+      <ul>
+        <li><strong>Status:</strong> Organizational Development</li>
+        <li><strong>Video Lessons:</strong> Folder 7: Team Building, Systems, Hiring</li>
+        <li><strong>Key Topics:</strong> Building a High-Performance Team | Creating SOPs | Hiring & Onboarding | Delegation & Accountability</li>
+        <li><strong>Key Resources:</strong> Dubai Mastermind Recordings | Hiring SOPs & Templates | Onboarding Checklist</li>
+        <li><strong>Focus:</strong> Building scalable teams, creating systems, and hiring the right talent.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 7: ORIGINS PROGRAM ($0-$100K/MO)</h3>
+      <ul>
+        <li><strong>Status:</strong> Launch & Growth Acceleration</li>
+        <li><strong>Video Lessons:</strong> Folder 6: Origins Program</li>
+        <li><strong>Key Topics:</strong> Product Launch Strategy | First 30 Days Execution | Initial Customer Acquisition | Early Scaling Tactics</li>
+        <li><strong>Key Resources:</strong> Tactical Launch Checklist | 30-Day Action Plan | Customer Acquisition Playbook</li>
+        <li><strong>Focus:</strong> Step-by-step launch framework for new brands from zero to $100K/month.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📌 MODULE 8: $100K/DAY PODCAST</h3>
+      <ul>
+        <li><strong>Status:</strong> Advanced Case Studies & Mindset</li>
+        <li><strong>Video Lessons:</strong> Folder 9: $0-$100k Day Yap Session</li>
+        <li><strong>Key Topics:</strong> Scaling to $100k/day | Advanced Marketing Tactics | Founder Stories & Case Studies | Mindset & Psychology</li>
+        <li><strong>Key Resources:</strong> Podcast Episodes (Audio) | Transcripts & Notes | Case Study Breakdowns</li>
+        <li><strong>Focus:</strong> Scaling beyond $100K/month and advanced business operations.</li>
+      </ul>
+    </div>
   </div>
 
   <!-- ─── DAILY CHECKLIST ─── -->
@@ -876,7 +619,6 @@ Ellison & Fitz Support</div>
     <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: May 28, 2026</strong></p>
     <p style="margin-top: 6px;">Questions? Post in <strong>#ops-support-escalations</strong> on Slack.</p>
   </footer>
-
 </div>
 </body>
 </html>
