@@ -280,6 +280,36 @@
     <div><strong>Platform update (April 27, 2026):</strong> We are now fully on <strong>Redo</strong> for all returns and exchanges. Return Helper, Stripe payment links, and manual label generation are deprecated. Use Redo portal only.</div>
   </div>
 
+  <!-- ─── SECTION: COMMUNICATION STYLE ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">✍️</span>
+      <span class="section-title">Communication Style Guide</span>
+      <span class="section-badge updated">New</span>
+    </div>
+    <div class="card">
+      <h3>Tone: Warm but concise</h3>
+      <p>Get to the resolution quickly. Do not over-apologize or pad with filler.</p>
+    </div>
+    <div class="card">
+      <h3>Formatting Rules</h3>
+      <ul class="checklist">
+        <li><span class="check"></span><strong>No Em Dashes:</strong> Never use em dashes (—) in drafts. Use a comma, period, or "and" instead.</li>
+        <li><span class="check"></span><strong>Plain Sentences:</strong> Avoid excessive bullet points in customer emails.</li>
+        <li><span class="check"></span><strong>Standard Sign-off:</strong> Sign as "Ellison & Fitz Support" unless continuing an existing thread with a name (e.g., "Tina M.").</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Resolution Email Structure</h3>
+      <ol>
+        <li>Acknowledge what happened (one sentence, no over-apologizing).</li>
+        <li>State the resolution clearly and concretely.</li>
+        <li>Offer a next step if something is still pending.</li>
+        <li>Sign off.</li>
+      </ol>
+    </div>
+  </div>
+
   <!-- ─── SECTION: ROLE & TOOLS ─── -->
   <div class="section">
     <div class="section-header">
@@ -372,6 +402,32 @@ We appreciate your business.
 
 Best,
 The Ellison & Fitz Team</div>
+  </div>
+
+  <!-- ─── SECTION: CASE VERIFICATION ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔍</span>
+      <span class="section-title">Support Case Verification</span>
+      <span class="section-badge updated">Critical</span>
+    </div>
+    <div class="card">
+      <h3>Rule: Check Redo First</h3>
+      <p>Before sending any check-in or status update, <strong>check Redo's return record first</strong>. Do not rely on the Commslayer thread alone.</p>
+    </div>
+    <div class="alert yellow">
+      <span class="alert-icon">💡</span>
+      <div><strong>Why:</strong> Cases can look abandoned in Commslayer but be resolved in Redo (e.g., Ticket #3028). Redo doesn't always trigger a follow-up email.</div>
+    </div>
+    <div class="card">
+      <h3>Process</h3>
+      <ol>
+        <li>Pull the order name from the ticket.</li>
+        <li>Check Redo for return records (list_returns by order or email).</li>
+        <li>If return is complete/refunded, confirm resolution to the customer.</li>
+        <li>Only treat as "waiting on customer" if no Redo record exists.</li>
+      </ol>
+    </div>
   </div>
 
   <!-- ─── SECTION: STORE CREDIT ─── -->
@@ -512,10 +568,79 @@ Ellison & Fitz Support</div>
     </div>
   </div>
 
-  <!-- ─── SECTION: FULFILLMENT POLICY ─── -->
+  <!-- ─── SECTION: FULFILLMENT ROUTING ─── -->
   <div class="section">
     <div class="section-header">
       <span class="section-icon">📦</span>
+      <span class="section-title">Fluid Pant Fulfillment Routing</span>
+      <span class="section-badge updated">Updated Aug 10</span>
+    </div>
+    <div class="card">
+      <h3>Finalized Routing: Cherry/Beehive</h3>
+      <p>Ellison Fluid Pant fulfillment is fully consolidated under <strong>Cherry/Beehive</strong>. Wiio/Hart is phased out entirely.</p>
+    </div>
+    <div class="card">
+      <h3>Colorway & Size Breakdown</h3>
+      <table class="sop-table">
+        <thead><tr><th>Colorways</th><th>Sizes</th></tr></thead>
+        <tbody>
+          <tr><td>Mixed, Royal Blue, Violet Blue, Fluorescent Green</td><td>S–2XL only</td></tr>
+          <tr><td>Light Grey, White, Black, Dark Grey</td><td>M–4XL</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Action Items</h3>
+      <ul>
+        <li>Merge listings (ellison-fluid-pant and fluid-pant) into one product.</li>
+        <li>Drop invalid 3XL/4XL variants for capped colorways.</li>
+        <li>Cut Wiio's DSers access once cutover is confirmed.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: DUPLICATE DETECTION ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔄</span>
+      <span class="section-title">Duplicate Fulfillment Detection</span>
+    </div>
+    <div class="card">
+      <h3>The Bug: Double-Pulling</h3>
+      <p>DSers/Wiio has repeatedly double-pulled the same order. Confirmed cases include Ellison9428Fitz, Ellison9334Fitz, etc.</p>
+    </div>
+    <div class="card">
+      <h3>Tagging Process</h3>
+      <table class="sop-table">
+        <thead><tr><th>Tag</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td><code>possible-duplicate-shipment</code></td><td>Applied automatically by Flow #2 on detection.</td></tr>
+          <tr><td><code>DUPLICATE-SHIPMENT-GOODWILL</code></td><td>Manual tag when letting customer keep extra item as write-off.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Manual Resolution</h3>
+      <p>If you spot a duplicate (same tracking number twice), ask the customer if they received two packages. If so, let them keep the extra as goodwill (tag <code>DUPLICATE-SHIPMENT-GOODWILL</code>).</p>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: ORDER EDITS ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">✏️</span>
+      <span class="section-title">Pre-Fulfillment Order Edits</span>
+    </div>
+    <div class="card">
+      <h3>Process</h3>
+      <p>If caught before shipping (ON_HOLD), swap variants via Shopify's order edit flow. Confirm the change to the customer directly.</p>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: FULFILLMENT POLICY ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📜</span>
       <span class="section-title">Fulfillment Policy</span>
     </div>
     <div class="card">
@@ -580,6 +705,23 @@ Ellison & Fitz Support</div>
     </div>
   </div>
 
+  <!-- ─── SECTION: CHARGEBACKS ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">Chargeback Escalation Path</span>
+      <span class="section-badge updated">High Priority</span>
+    </div>
+    <div class="card">
+      <h3>Evidence Gathering</h3>
+      <p>Chargebacks have hard deadlines. Pull tracking + timestamp, address match proof, and comms showing item was received/used.</p>
+    </div>
+    <div class="card">
+      <h3>Submission</h3>
+      <p>Currently manual via Shopify dispute form or processor dashboard. Owner: <strong>Kevin</strong>.</p>
+    </div>
+  </div>
+
   <!-- ─── ESCALATION QUICK REFERENCE ─── -->
   <div class="section">
     <div class="section-header">
@@ -598,6 +740,7 @@ Ellison & Fitz Support</div>
           <tr><td>Sourcing question — 3rd press or accusatory</td><td>Escalate immediately, tag Kevin or Leandro in Slack</td></tr>
           <tr><td>3rd exchange request (sizing)</td><td>Escalate for full refund review</td></tr>
           <tr><td>Missing size chart for a product</td><td>Flag to manager immediately</td></tr>
+          <tr><td>Chargeback / Dispute filed</td><td>Gather evidence immediately; escalate to Kevin</td></tr>
         </tbody>
       </table>
     </div>
@@ -608,7 +751,7 @@ Ellison & Fitz Support</div>
   </div>
 
   <footer>
-    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: August 5, 2026</strong></p>
+    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: August 11, 2026</strong></p>
     <p style="margin-top: 6px;">Questions? Post in <strong>#ops-support-escalations</strong> on Slack.</p>
   </footer>
 </div>
