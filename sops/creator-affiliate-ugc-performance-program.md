@@ -1,10 +1,21 @@
 # SOP: Creator Affiliate and UGC Paid-Media Performance Program
 
 **Brand:** Ellison & Fitz  
-**Status:** Draft for management approval  
-**Owner:** Growth Lead  
-**Applies to:** Creator partnerships, affiliate programs, UGC production, paid social, finance, and operations  
-**Review cadence:** Monthly during pilot, then quarterly
+**Status:** Pilot operating baseline. Individual commercial terms remain approval-dependent.
+**Owner:** Growth Lead, coordinated through [#ef-creator-ops](https://teamspace-77k4186.slack.com/archives/C0BQJ8UN55F)
+**Applies to:** Creator partnerships, affiliate programs, UGC production, paid social, finance, and operations
+**Review cadence:** Weekly during the pilot, then quarterly
+
+## Live program resources
+
+| Resource | Use |
+|---|---|
+| [Creator Hub](https://app.notion.com/p/3bd5724d4792814ea451d0155994c90a?pvs=204) | Creator-facing onboarding, content direction, affiliate basics, and invitation-only UGC pathway |
+| [#ef-creator-ops](https://teamspace-77k4186.slack.com/archives/C0BQJ8UN55F) | Internal decisions, operating updates, asset approval status, test tracking, and payout-review coordination |
+| UpPromote | Creator invitation, unique affiliate links and codes, referral-sales attribution, affiliate-commission records, and eligible affiliate payouts |
+| Creator Performance Ledger | Creator-asset paid-media attribution, UGC-bonus calculation, caps, approvals, and final payment evidence |
+
+> **Access control:** #ef-creator-ops is public within the workspace. Use it for operating status and links only. Keep agreements, payment or tax details, complete ad-account exports, and other sensitive records in restricted systems.
 
 ## 1. Purpose
 
@@ -29,11 +40,13 @@ This procedure explains how Ellison & Fitz onboards creators, pays affiliate com
 | Affiliate commission | A completed customer order attributed through the creator’s unique link or code | UpPromote and Shopify order data | After the configured refund and return hold period |
 | UGC paid-media performance bonus | Eligible net paid-media spend delivered on an approved creator asset | Paid-ad platform report and the Creator Performance Ledger | Monthly after data is locked and approved |
 
+The pilot begins with **affiliate-first onboarding** in UpPromote. Every approved creator receives a unique referral link and customer-facing code. Only selected candidates receive a separate UGC campaign brief and performance-bonus addendum.
+
 The affiliate commission rate, customer discount, UGC bonus tiers, and monthly cap must be written into the creator offer before the creator begins work. The affiliate program should never be used to imply that the brand will pay a UGC performance bonus. The bonus must be described in its own addendum or campaign brief.
 
 ## 4. Required management decisions before launch
 
-The Growth Lead must approve the following items before creators are invited.
+The Growth Lead must approve the following items before creators are invited. During the initial pilot, invite **5 to 10 creators** and start them as affiliate partners. Consider a creator for paid UGC only after the team has verified on-brand content quality, reliable communication, a viable product fit, and readiness to grant paid-media usage rights.
 
 | Decision | Required choice | Approval record |
 |---|---|---|
@@ -43,6 +56,8 @@ The Growth Lead must approve the following items before creators are invited.
 | Pilot cap | Select one firm cap per creator per month. Do not state a range. | Approved creator offer |
 | Rights | Ad platforms, paid-usage duration, editing permission, whitelisting or Spark Ads status, and renewal terms | Rights addendum or campaign brief |
 | Reporting cadence | Weekly estimated scorecard and monthly final statement | Campaign brief |
+| Creator selection | Affiliate-first for the pilot; paid UGC is invitation-only after content and rights review | Creator Master List and campaign brief |
+| Internal operating record | Post status, approvals, and blockers using the standard labels in #ef-creator-ops | Slack operations Canvas |
 
 ### Current proposed UGC performance schedule
 
@@ -78,7 +93,7 @@ Before an affiliate invite is sent, create one row in the Creator Master List. T
 
 ### 5.2 Configure UpPromote
 
-The Creator Program Manager configures the creator’s affiliate program in UpPromote using the approved offer. At minimum, each creator receives a unique link and a unique discount code so that both link-led and code-led sales can be attributed.
+The Creator Program Manager configures the creator’s affiliate program in UpPromote using the approved offer. At minimum, each creator receives a unique link and a unique discount code so that both link-led and code-led sales can be attributed. The individual creator’s UpPromote portal remains the source of truth for their affiliate activity and commission status.
 
 Use the following operating standards.
 
@@ -301,6 +316,8 @@ Store the following in the approved creator program workspace for each creator a
 ### Before inviting a creator
 
 - [ ] Creator offer approved, including affiliate commission, customer code, UGC eligibility, and exact cap.
+- [ ] The Creator Master List records the exact affiliate rate, customer discount, commission hold, selected UGC cap, and rights status. Do not leave any commercial term as a range.
+- [ ] Internal owner posts a `[CREATOR]` update in #ef-creator-ops with stage, next action, and blocker status.
 - [ ] Creator record created with unique creator ID.
 - [ ] UpPromote link and code prepared.
 - [ ] Rights and UGC performance terms ready, if applicable.
@@ -329,3 +346,4 @@ Store the following in the approved creator program workspace for each creator a
 | Date | Change | Owner |
 |---|---|---|
 | 2026-08-15 | Initial SOP created for creator affiliate and UGC paid-media performance pilot | Manus AI |
+| 2026-08-15 | Added live operating resources, affiliate-first pilot structure, internal channel controls, and creator-selection protocol | Manus AI |
