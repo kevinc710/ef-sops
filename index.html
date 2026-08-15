@@ -382,6 +382,17 @@
       <h3>Shipping refunds</h3>
       <p><span class="escalate">🚨 Manager approval required</span> — except when the wrong item was shipped or the order was confirmed lost due to company/carrier error.</p>
     </div>
+    <div class="alert yellow">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Correction (Aug 14):</strong> The "$15 Return Fee" is <strong>OUTDATED</strong>. We do not charge a flat fee. Return shipping is covered by Checkout+ (Redo add-on) or paid by the customer. Do not quote specific dollar figures for processing fees.</div>
+    </div>
+    <div class="card">
+      <h3>Photo Requirements (Correction Aug 14)</h3>
+      <ul>
+        <li><strong>Type A (Preference/Fit):</strong> Photos are <strong>NOT</strong> required. Direct customers to the Redo Return Portal.</li>
+        <li><strong>Type B (Damaged/Defective):</strong> Photos <strong>ARE</strong> required and must be reported within <strong>48 hours</strong> of delivery.</li>
+      </ul>
+    </div>
     <div class="template-label">Template — Full Product Refund</div>
     <div class="template-block">Hi [Customer Name],
 
@@ -613,6 +624,10 @@ Ellison & Fitz Support</div>
         <li>Cut Wiio's DSers access once cutover is confirmed.</li>
       </ul>
     </div>
+    <div class="alert red">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>Status Update (Aug 15):</strong> Cherry's hemming/sizing guarantee is now in question. A real case (Joel Marazzo) showed inconsistent sizing and unfinished hems. Do NOT tell customers the consolidation resolves these issues until Cherry confirms a new proven supplier in writing.</div>
+    </div>
   </div>
 
   <!-- ─── SECTION: DUPLICATE DETECTION ─── -->
@@ -623,21 +638,32 @@ Ellison & Fitz Support</div>
     </div>
     <div class="card">
       <h3>The Bug: Double-Pulling</h3>
-      <p>DSers/Wiio has repeatedly double-pulled the same order. Confirmed cases include Ellison9428Fitz, Ellison9334Fitz, etc.</p>
+      <p>DSers/Wiio has repeatedly double-pulled the same order. Confirmed cases: Ellison9428Fitz, 9334, 8639, 9182. Pending: Ellison10297Fitz (Bruno Roldo, Aug 12).</p>
+    </div>
+    <div class="card">
+      <h3>Known False-Positive Patterns</h3>
+      <ul>
+        <li><strong>x-redo SKU (Aug 12):</strong> Orders with Redo return coverage get a separate fulfillment record for the non-shipping `x-redo` item. If it shares a tracking number, it trips the count check.</li>
+        <li><strong>Split Fulfillments (Aug 14):</strong> One package split across two records (e.g., Ellison10404Fitz). If items don't overlap and total quantity matches the order, it is NOT a duplicate.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Detection Redesign (Aug 14)</h3>
+      <p><strong>Status: LIVE.</strong> Flow #2 is now a trigger only. A dedicated checker service makes the final verdict based on SKU overlap and `x-redo` exclusion. The old "Flag possible duplicate shipments" workflow is OFF.</p>
     </div>
     <div class="card">
       <h3>Tagging Process</h3>
       <table class="sop-table">
         <thead><tr><th>Tag</th><th>Usage</th></tr></thead>
         <tbody>
-          <tr><td><code>possible-duplicate-shipment</code></td><td>Applied automatically by Flow #2 on detection.</td></tr>
-          <tr><td><code>DUPLICATE-SHIPMENT-GOODWILL</code></td><td>Manual tag for write-offs. First entry: Ellison9334Fitz (Rothberg), Aug 11, 2026.</td></tr>
+          <tr><td><code>possible-duplicate-shipment</code></td><td>Applied automatically on <strong>confirmed</strong> detection.</td></tr>
+          <tr><td><code>DUPLICATE-SHIPMENT-GOODWILL</code></td><td>Manual tag for write-offs. First entry: Ellison9334Fitz (Rothberg).</td></tr>
         </tbody>
       </table>
     </div>
     <div class="card">
       <h3>Manual Resolution</h3>
-      <p>If you spot a duplicate (same tracking number twice), ask the customer if they received two packages. If so, let them keep the extra as goodwill (tag <code>DUPLICATE-SHIPMENT-GOODWILL</code>).</p>
+      <p>Check fulfillments (same tracking twice = signature). Ask the customer if they received two packages. If so, let them keep the extra as goodwill (tag <code>DUPLICATE-SHIPMENT-GOODWILL</code>).</p>
     </div>
     <div class="card">
       <h3>Standing Rule: Exchange/Return Fulfillment</h3>
@@ -782,7 +808,7 @@ Ellison & Fitz Support</div>
   </div>
 
   <footer>
-    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: August 11, 2026</strong></p>
+    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: August 15, 2026</strong></p>
     <p style="margin-top: 6px;">Questions? Post in <strong>#ops-support-escalations</strong> on Slack.</p>
   </footer>
 </div>
