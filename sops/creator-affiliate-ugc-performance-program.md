@@ -14,6 +14,7 @@
 | [#ef-creator-ops](https://teamspace-77k4186.slack.com/archives/C0BQJ8UN55F) | Internal decisions, operating updates, asset approval status, test tracking, and payout-review coordination |
 | UpPromote | Creator invitation, unique affiliate links and codes, referral-sales attribution, affiliate-commission records, and eligible affiliate payouts |
 | Creator Performance Ledger | Creator-asset paid-media attribution, UGC-bonus calculation, caps, approvals, and final payment evidence |
+| [Creator Program Operations Workbook](https://docs.google.com/spreadsheets/d/1gBrcJ9GUlIkY-Rc0d3sG1Ue-9vdqUXGL9ty_vnN_-UM/edit) | Master tracker for candidate screening, product priority, briefs, assets, tests, and payouts |
 
 > **Access control:** #ef-creator-ops is public within the workspace. Use it for operating status and links only. Keep agreements, payment or tax details, complete ad-account exports, and other sensitive records in restricted systems.
 
@@ -283,7 +284,41 @@ Thank you for creating with Ellison & Fitz.
 | Creator requests live access to the paid-ad account | Decline. Provide the approved creator scorecard instead. |
 | The creator hits the monthly cap | Continue or pause media only after Growth Lead decides whether the additional spend has strategic value without incremental bonus liability. |
 
-## 14. Pilot success criteria
+## 14. Creator lifecycle and product-rotation workflow
+
+The program runs **affiliate first, product specific, and evidence based**. Every candidate begins in the Creator Pipeline before an offer is made. The team should select one primary product for each creator at a time, issue one brief, assess the resulting organic content and affiliate signal, and only then decide whether that creator is a suitable candidate for paid UGC.
+
+| Stage | Internal action | Exit condition |
+|---|---|---|
+| Sourced | Create a Creator Pipeline row with source, portfolio or social link, basic audience note, and owner. | Basic candidate record is complete. |
+| Screening | Review content quality, brand fit, audience relevance, reliability signals, and product fit. Request current public social links, two or three short-form examples, audience summary, and availability. | Growth Lead marks `Advance` or `Decline`. |
+| Activated | Approve the affiliate offer, create the UpPromote invitation, and issue one unique link and code. | Creator confirms portal access and affiliate assets. |
+| Briefed | Assign one product brief from the Product Queue and record the brief ID, due date, and owner. | Creator acknowledges the brief. |
+| Live | Review the published content, disclosure, link or code use, and initial affiliate signal. | Creator is retained as affiliate-only or considered for UGC. |
+| UGC candidate | Evaluate the creator only after content quality, reliability, product fit, and rights readiness are verified. | Separate UGC brief and rights addendum are approved or the creator remains affiliate-only. |
+
+### 14.1 Product Queue roles
+
+| Role | Definition | Assignment rule |
+|---|---|---|
+| Primary affiliate spotlight | Current best product for routine affiliate outreach. | Use as the default only when it fits the creator's audience and content style. |
+| Test product | Product requiring further creator-market-fit validation. | Use only with a deliberately selected creator segment. |
+| Hold | Product that is not currently receiving new creator briefs. | Do not issue new briefs. |
+| Retired | Product no longer eligible for creator promotion. | Archive existing brief and remove from offers. |
+
+The Growth Lead reviews the Product Queue weekly. Product role can change without changing the overall affiliate program. Each creator receives **one primary product brief at a time** to keep content focused and learn which creator, product, and angle perform together.
+
+### 14.2 Current primary affiliate spotlight: Ellison Fluid Pant
+
+The Ellison Fluid Pant is the initial primary affiliate spotlight. The live product page should remain the source of truth for current price, inventory, and other dynamic information. The approved product truths are: lightweight breathable striped fabric, relaxed straight-leg cut, adjustable drawstring waist, machine washability, and quick-drying care.[1]
+
+The default affiliate brief should direct creators to make one vertical short-form video or one feed post that uses their assigned link and code, tags `@ellisonandfitz`, uses the applicable disclosure, and provides the published URL to the creator team. Approved angles include movement and fit, travel or day-to-night styling, one pant in three ways, and a specific honest product observation. The affiliate brief does **not** grant paid-media usage rights or promise a UGC performance bonus.
+
+### 14.3 Internal and external communication rule
+
+`#ef-creator-ops` remains internal only. The channel coordinates screening, offer approval, UpPromote activation, briefs, asset approval, and payout decisions. Creator communication occurs through email, UpPromote, or an approved direct-message channel. Do not post personal payment data, agreements, detailed ad-account exports, or private offer terms in Slack.
+
+## 15. Pilot success criteria
 
 Run the initial pilot with 5 to 10 approved creators for at least 30 to 60 days. Evaluate the system only after two clean monthly closes if the timing allows.
 
@@ -298,7 +333,7 @@ Run the initial pilot with 5 to 10 approved creators for at least 30 to 60 days.
 
 Move to a larger creator-management platform only when manual operations are demonstrably the bottleneck or when a vendor can show a working configuration for asset-level paid-media spend, the exact marginal tier logic, cap enforcement, and creator-specific reporting.
 
-## 15. Required records and retention
+## 16. Required records and retention
 
 Store the following in the approved creator program workspace for each creator and campaign.
 
@@ -311,7 +346,7 @@ Store the following in the approved creator program workspace for each creator a
 | Creator Performance Ledger and payout statement | Retain with finance records |
 | UpPromote affiliate record and payout history | Retain in UpPromote and archive monthly export if required |
 
-## 16. Operating checklist
+## 17. Operating checklist
 
 ### Before inviting a creator
 
@@ -347,3 +382,8 @@ Store the following in the approved creator program workspace for each creator a
 |---|---|---|
 | 2026-08-15 | Initial SOP created for creator affiliate and UGC paid-media performance pilot | Manus AI |
 | 2026-08-15 | Added live operating resources, affiliate-first pilot structure, internal channel controls, and creator-selection protocol | Manus AI |
+| 2026-08-15 | Added Creator Program Operations Workbook, product-led lifecycle, product rotation protocol, and Fluid Pant primary affiliate brief | Manus AI |
+
+## References
+
+[1] [Ellison Fluid Pant, Ellison & Fitz](https://ellisonandfitz.com/products/ellison-fluid-pant)
