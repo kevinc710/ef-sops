@@ -3,7 +3,7 @@
 **Brand:** Ellison & Fitz  
 **Lane:** Backend ops (Adam)  
 **Status:** Current how. Not a week-by-week recap.  
-**Not for:** VA customer-support pages. CS truth stays on the [live SOP](../). Dated history stays in the [changelog](../CHANGELOG).
+**Not for:** VA customer-support pages. CS truth stays on the [live SOP](../). Dated history stays in the [changelog](../CHANGELOG.md).
 
 This playbook is the current operating how for dropship, double-ship, Trustpilot week 1, Open Loops, WhatsApp, and Shopify writes. It does not replace the CS SOP.
 
