@@ -271,13 +271,13 @@
   <div class="hero">
     <p class="hero-eyebrow">Customer Support</p>
     <h1>📋 Standard Operating Procedures</h1>
-    <p>Your complete playbook for handling support tickets, returns, refunds, escalations, and customer communication. Read every section before handling tickets.</p>
+    <p>Current playbook for support tickets, returns, refunds, escalations, and customer communication. Read every section before handling tickets. Dated history lives in <a href="CHANGELOG.html">CHANGELOG</a>, not as footnotes on this page.</p>
   </div>
 
   <!-- IMPORTANT NOTICE -->
   <div class="alert green">
     <span class="alert-icon">✅</span>
-    <div><strong>Platform update (April 27, 2026):</strong> We are now fully on <strong>Redo</strong> for all returns and exchanges. Return Helper, Stripe payment links, and manual label generation are deprecated. Use Redo portal only.</div>
+    <div><strong>Returns and exchanges:</strong> Use <strong>Redo</strong> for all returns and exchanges. Return Helper, Stripe payment links, and manual label generation are not used.</div>
   </div>
 
   <!-- ─── SECTION: COMMUNICATION STYLE ─── -->
@@ -285,18 +285,26 @@
     <div class="section-header">
       <span class="section-icon">✍️</span>
       <span class="section-title">Communication Style Guide</span>
-      <span class="section-badge updated">New</span>
     </div>
     <div class="card">
       <h3>Tone: Warm but concise</h3>
       <p>Get to the resolution quickly. Do not over-apologize or pad with filler.</p>
     </div>
     <div class="card">
+      <h3>Customer-facing email</h3>
+      <p>CS mail goes out from <strong>info@ellisonandfitz.com</strong>. Sign as "Ellison &amp; Fitz Support" unless you are continuing an existing thread as Tina M.</p>
+      <ul>
+        <li><strong>info@ellisonandfitz.com</strong> is the live customer-support address.</li>
+        <li><strong>hello@ellisonandfitz.com</strong> is marketing and the Trustpilot Business owner. Do not use it for support threads.</li>
+        <li>Do not use support@ellisonandfitz.com. That address is not the live CS inbox.</li>
+      </ul>
+    </div>
+    <div class="card">
       <h3>Formatting Rules</h3>
       <ul class="checklist">
         <li><span class="check"></span><strong>No Em Dashes:</strong> Never use em dashes (—) in drafts. Use a comma, period, or "and" instead.</li>
         <li><span class="check"></span><strong>Plain Sentences:</strong> Avoid excessive bullet points in customer emails.</li>
-        <li><span class="check"></span><strong>Standard Sign-off:</strong> Sign as "Ellison & Fitz Support" unless continuing an existing thread with a name (e.g., "Tina M.").</li>
+        <li><span class="check"></span><strong>Standard Sign-off:</strong> Sign as "Ellison &amp; Fitz Support" unless continuing an existing thread with a name (e.g., "Tina M.").</li>
       </ul>
     </div>
     <div class="card">
@@ -320,10 +328,35 @@
       <h3>What you're here to do</h3>
       <p>You are the first line of defense against chargebacks, refunds, and negative experiences — and a key driver of revenue through strong customer relationships. Your goal is to resolve issues fast, retain revenue, and protect the brand.</p>
     </div>
+    <div class="card">
+      <h3>Commslayer split</h3>
+      <p>All live chat and tickets stay in Commslayer. Do not move refunds, store credit, Redo, chargebacks, or escalations to Gmail.</p>
+      <table class="sop-table">
+        <thead><tr><th>Who</th><th>Does</th><th>Does not</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Mike</strong></td>
+            <td>Live chat and first-pass tickets: WISMO, tracking, policy, and SOP answers.</td>
+            <td>Never touches money. No refunds, store credit, Redo processing, or chargebacks.</td>
+          </tr>
+          <tr>
+            <td><strong>Abby</strong> (Abigail Go; customer-facing name Tina)</td>
+            <td>Refunds, store credit, Redo, chargebacks, damaged or missing, and manager escalations. Work these in Commslayer.</td>
+            <td>Do not handle these in Gmail.</td>
+          </tr>
+          <tr>
+            <td><strong>Kevin or Leandro</strong></td>
+            <td>High-risk cancels, discounts above 20%, and shipping-cost refunds (except wrong item or confirmed lost).</td>
+            <td>Mike and Abby do not approve high-risk cancels on their own.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 12px;"><strong>Instagram:</strong> Do not mark a thread as read unless you have replied.</p>
+    </div>
     <div class="tool-grid" style="margin-top: 12px;">
-      <div class="tool-card"><div class="tool-name">Shopify</div><div class="tool-desc">View/manage orders, issue refunds, add internal notes, tag orders</div></div>
-      <div class="tool-card"><div class="tool-name">Commslayer</div><div class="tool-desc">Primary support inbox — handle tickets, escalations, and replies</div></div>
-      <div class="tool-card"><div class="tool-name">Redo Portal</div><div class="tool-desc">All returns, exchanges, and refund processing — live as of April 27</div></div>
+      <div class="tool-card"><div class="tool-name">Shopify</div><div class="tool-desc">View orders, notes, and tags. Shopify writes need Kevin's explicit OK. Abby still processes CS refunds and store credit.</div></div>
+      <div class="tool-card"><div class="tool-name">Commslayer</div><div class="tool-desc">Live chat and tickets. Follow the split above. Do not work CS money in Gmail.</div></div>
+      <div class="tool-card"><div class="tool-name">Redo Portal</div><div class="tool-desc">All returns, exchanges, and refund processing. Check Redo before promising a status.</div></div>
       <div class="tool-card"><div class="tool-name">ParcelPanel</div><div class="tool-desc">Branded tracking page — always use instead of 17track</div></div>
       <div class="tool-card"><div class="tool-name">Slack</div><div class="tool-desc">Team communication, SOP updates, escalation alerts (#ops-support-escalations)</div></div>
       <div class="tool-card"><div class="tool-name">Google Sheets</div><div class="tool-desc">Master Refunds &amp; Returns log — document all HRR cases</div></div>
@@ -335,7 +368,6 @@
     <div class="section-header">
       <span class="section-icon">🏷️</span>
       <span class="section-title">Discount Authorization</span>
-      <span class="section-badge updated">Updated April 24</span>
     </div>
     <div class="card">
       <div class="rule-row">
@@ -364,6 +396,10 @@
       <span class="section-title">Refund Policy (SOP 2)</span>
     </div>
     <div class="card">
+      <h3>Owner</h3>
+      <p><strong>Abby</strong> processes refunds. Mike never touches money. High-risk cancels stay with Kevin or Leandro.</p>
+    </div>
+    <div class="card">
       <h3>Core rule <span class="tag">non-negotiable</span></h3>
       <p>Refund <strong>only the discounted product subtotal</strong> — never the pre-discount price, never the total including shipping.</p>
       <p style="margin-top: 10px; font-size: 13px; color: var(--muted);">Example: Item $69.99 → Discount -$6.99 → Net paid $62.99. Refund = <strong>$62.99</strong>. Not $69.99. Not $67.99 (with shipping).</p>
@@ -384,10 +420,10 @@
     </div>
     <div class="alert yellow">
       <span class="alert-icon">⚠️</span>
-      <div><strong>Correction (Aug 14):</strong> The "$15 Return Fee" is <strong>OUTDATED</strong>. We do not charge a flat fee. Return shipping is covered by Checkout+ (Redo add-on) or paid by the customer. Do not quote specific dollar figures for processing fees.</div>
+      <div>We do not charge a flat return processing fee. Return shipping is covered by Checkout+ (Redo add-on) or paid by the customer. Do not quote a dollar processing fee.</div>
     </div>
     <div class="card">
-      <h3>Photo Requirements (Correction Aug 14)</h3>
+      <h3>Photo Requirements</h3>
       <ul>
         <li><strong>Type A (Preference/Fit):</strong> Photos are <strong>NOT</strong> required. Direct customers to the Redo Return Portal.</li>
         <li><strong>Type B (Damaged/Defective):</strong> Photos <strong>ARE</strong> required and must be reported within <strong>48 hours</strong> of delivery.</li>
@@ -464,6 +500,10 @@ The Ellison & Fitz Team</div>
       <span class="section-title">Store Credit (SOP 1)</span>
     </div>
     <div class="card">
+      <h3>Owner</h3>
+      <p><strong>Abby</strong> issues store credit. Prefer store credit over refunds. Mike never issues credit.</p>
+    </div>
+    <div class="card">
       <h3>Eligibility — ALL must be true</h3>
       <ul>
         <li>Order is confirmed <strong>Delivered</strong> in carrier tracking</li>
@@ -537,7 +577,6 @@ Ellison & Fitz Support</div>
     <div class="section-header">
       <span class="section-icon">🌎</span>
       <span class="section-title">International Return Shipping — Unsupported Regions</span>
-      <span class="section-badge updated">New</span>
     </div>
     <div class="card">
       <h3>Unsupported Regions: Brazil, Mexico, Japan, Southeast Asia, etc.</h3>
@@ -584,7 +623,9 @@ Ellison & Fitz Support</div>
     </div>
     <div class="card">
       <ul class="checklist">
-        <li><span class="check"></span>Respond to all open support tickets in Commslayer</li>
+        <li><span class="check"></span>Mike: work live chat and first-pass tickets in Commslayer (WISMO, tracking, policy, SOP answers)</li>
+        <li><span class="check"></span>Do not mark an Instagram thread as read unless you have replied</li>
+        <li><span class="check"></span>Money, Redo, chargebacks, damaged/missing: Abby in Commslayer, not Gmail. Mike never touches money</li>
         <li><span class="check"></span>Apply anger-level / severity-appropriate resolution per SOPs</li>
         <li><span class="check"></span>Check Slack (#ops-team-sops, #ops-support-escalations) for updates</li>
         <li><span class="check"></span>Flag any unresponsive tickets approaching Day 3 or Day 7</li>
@@ -600,14 +641,13 @@ Ellison & Fitz Support</div>
     <div class="section-header">
       <span class="section-icon">📦</span>
       <span class="section-title">Fluid Pant Fulfillment Routing</span>
-      <span class="section-badge updated">Updated Aug 10</span>
     </div>
     <div class="card">
-      <h3>Finalized Routing: Cherry/Beehive</h3>
-      <p>Ellison Fluid Pant fulfillment is fully consolidated under <strong>Cherry/Beehive</strong>. Wiio/Hart is phased out entirely.</p>
+      <h3>Current routing: Beehiveship (Cherry/Beehive)</h3>
+      <p>Ellison Fluid Pant fulfillment is <strong>Cherry/Beehive only</strong>, in the <strong>Beehiveship</strong> app. Wiio/Hart is phased out. Do not route Fluid Pant through Dropsure. Do not ping Lay.</p>
     </div>
     <div class="card">
-      <h3>Colorway & Size Breakdown</h3>
+      <h3>Colorway &amp; Size Breakdown</h3>
       <table class="sop-table">
         <thead><tr><th>Colorways</th><th>Sizes</th></tr></thead>
         <tbody>
@@ -616,17 +656,9 @@ Ellison & Fitz Support</div>
         </tbody>
       </table>
     </div>
-    <div class="card">
-      <h3>Action Items</h3>
-      <ul>
-        <li>Merge listings (ellison-fluid-pant and fluid-pant) into one product.</li>
-        <li>Drop invalid 3XL/4XL variants for capped colorways.</li>
-        <li>Cut Wiio's DSers access once cutover is confirmed.</li>
-      </ul>
-    </div>
     <div class="alert red">
       <span class="alert-icon">⚠️</span>
-      <div><strong>Status Update (Aug 15):</strong> Cherry's hemming/sizing guarantee is now in question. A real case (Joel Marazzo) showed inconsistent sizing and unfinished hems. Do NOT tell customers the consolidation resolves these issues until Cherry confirms a new proven supplier in writing.</div>
+      <div>Do not tell customers that Cherry/Beehive consolidation resolved hemming or sizing. A real case (Joel Marazzo) showed inconsistent sizing and unfinished hems. Do not claim a new proven supplier until Cherry confirms it in writing.</div>
     </div>
   </div>
 
@@ -637,19 +669,22 @@ Ellison & Fitz Support</div>
       <span class="section-title">Duplicate Fulfillment Detection</span>
     </div>
     <div class="card">
-      <h3>The Bug: Double-Pulling</h3>
-      <p>DSers/Wiio has repeatedly double-pulled the same order. Confirmed cases: Ellison9428Fitz, 9334, 8639, 9182. Pending: Ellison10297Fitz (Bruno Roldo, Aug 12).</p>
+      <h3>Live risk: Redo vs Cherry/Beehive</h3>
+      <p>The live double-ship risk is <strong>Redo</strong> (Salt Lake) and <strong>Beehiveship (Cherry/Beehive)</strong> both moving on the same order. Do not treat old Wiio/DSers double-pulls as the current bug. Do not ping Lay or Dropsure.</p>
     </div>
     <div class="card">
-      <h3>Known False-Positive Patterns</h3>
+      <h3>x-redo is not a second pant</h3>
+      <p>The <code>x-redo</code> SKU is the Redo protection line. It often shows dummy USPS tracking that starts with <strong>TX</strong>. That record is not a second Fluid Pant and is not proof of a duplicate shipment.</p>
+    </div>
+    <div class="card">
+      <h3>Other false positives</h3>
       <ul>
-        <li><strong>x-redo SKU (Aug 12):</strong> Orders with Redo return coverage get a separate fulfillment record for the non-shipping `x-redo` item. If it shares a tracking number, it trips the count check.</li>
-        <li><strong>Split Fulfillments (Aug 14):</strong> One package split across two records (e.g., Ellison10404Fitz). If items don't overlap and total quantity matches the order, it is NOT a duplicate.</li>
+        <li><strong>Split fulfillments:</strong> One package split across two records (example: Ellison10404Fitz). If items do not overlap and total quantity matches the order, it is not a duplicate.</li>
       </ul>
     </div>
     <div class="card">
-      <h3>Detection Redesign (Aug 14)</h3>
-      <p><strong>Status: LIVE.</strong> Flow #2 is now a trigger only. A dedicated checker service makes the final verdict based on SKU overlap and `x-redo` exclusion. The old "Flag possible duplicate shipments" workflow is OFF.</p>
+      <h3>Detection</h3>
+      <p>Flow #2 is a trigger only. A dedicated checker makes the final verdict from SKU overlap and <code>x-redo</code> exclusion. The old "Flag possible duplicate shipments" workflow is off.</p>
     </div>
     <div class="card">
       <h3>Tagging Process</h3>
@@ -657,28 +692,30 @@ Ellison & Fitz Support</div>
         <thead><tr><th>Tag</th><th>Usage</th></tr></thead>
         <tbody>
           <tr><td><code>possible-duplicate-shipment</code></td><td>Applied automatically on <strong>confirmed</strong> detection.</td></tr>
-          <tr><td><code>DUPLICATE-SHIPMENT-GOODWILL</code></td><td>Manual tag for write-offs. First entry: Ellison9334Fitz (Rothberg).</td></tr>
+          <tr><td><code>DUPLICATE-SHIPMENT-GOODWILL</code></td><td>Manual tag for write-offs.</td></tr>
         </tbody>
       </table>
     </div>
     <div class="card">
-      <h3>Manual Resolution</h3>
-      <p>Check fulfillments (same tracking twice = signature). Ask the customer if they received two packages. If so, let them keep the extra as goodwill (tag <code>DUPLICATE-SHIPMENT-GOODWILL</code>).</p>
+      <h3>If you see Redo and Cherry both open</h3>
+      <p>If Redo has accepted or shipped and Beehiveship is still pending or paid, <strong>do not ping Cherry again</strong> and do not cancel fulfillment yourself. Flag ops. Shopify writes need Kevin's explicit OK.</p>
+      <p style="margin-top: 8px;">If the customer already received two packages, ask them. If they did, let them keep the extra as goodwill and tag <code>DUPLICATE-SHIPMENT-GOODWILL</code>.</p>
     </div>
     <div class="card">
       <h3>Standing Rule: Exchange/Return Fulfillment</h3>
-      <p>To prevent duplicate physical shipments, <strong>only ping Cherry or Lay/Dropsure to fulfill a replacement/exchange item AFTER Redo has explicitly confirmed in #06-fitz-redo-external that they don't have stock to cover it.</strong></p>
+      <p>To prevent a second physical shipment, <strong>only ping Cherry after Redo has confirmed out of stock in #06-fitz-redo-external</strong>.</p>
       <ul style="margin-top: 8px;">
-        <li>Don't reach out to an agent based on a customer message alone.</li>
-        <li>Redo may already be shipping it from their own stock in parallel.</li>
+        <li>Do not reach out from a customer message alone.</li>
+        <li>Redo may already be shipping from its own stock.</li>
+        <li>Do not ping Lay or Dropsure.</li>
       </ul>
     </div>
     <div class="alert green" style="margin-top: 12px; margin-bottom: 0;">
       <span class="alert-icon">🔄</span>
-      <div><strong>Correct Flow:</strong><br>
-      1. Customer needs exchange/replacement → Process through <strong>Redo first</strong>.<br>
-      2. If Redo confirms <strong>Out of Stock</strong> → Ping agent (Cherry/Lay) referencing Redo's confirmation.<br>
-      3. If stock status is unknown → <strong>Check with Redo first</strong>. Do not assume.</div>
+      <div><strong>Correct flow:</strong><br>
+      1. Customer needs exchange/replacement → process through <strong>Redo first</strong>.<br>
+      2. If Redo confirms <strong>out of stock</strong> in #06-fitz-redo-external → ping Cherry and reference Redo's confirmation.<br>
+      3. If stock status is unknown → <strong>check Redo first</strong>. Do not assume.</div>
     </div>
   </div>
 
@@ -775,7 +812,7 @@ Ellison & Fitz Support</div>
     </div>
     <div class="card">
       <h3>Submission</h3>
-      <p>Currently manual via Shopify dispute form or processor dashboard. Owner: <strong>Kevin</strong> (evaluating handoff to Abigail for evidence gathering).</p>
+      <p>Manual via Shopify dispute form or processor dashboard. Owner: <strong>Abby</strong> (Abigail Go). Handle in Commslayer, not Gmail. High-risk cancels stay with Kevin or Leandro.</p>
     </div>
   </div>
 
@@ -791,25 +828,52 @@ Ellison & Fitz Support</div>
         <tbody>
           <tr><td>Discount above 20%</td><td>Get Kevin or Leandro approval first</td></tr>
           <tr><td>Shipping cost refund</td><td>Get Kevin or Leandro approval (except wrong item / confirmed lost)</td></tr>
+          <tr><td>High-risk cancel</td><td>Kevin or Leandro only</td></tr>
+          <tr><td>Refund, store credit, Redo, chargeback, damaged/missing</td><td>Abby in Commslayer. Mike does not process.</td></tr>
           <tr><td>Customer threatens chargeback</td><td>Urgently offer credit/partial refund — full refund only to prevent dispute</td></tr>
           <tr><td>HRR case or uncertain</td><td>Escalate if unsure, hostile, or order over $200</td></tr>
           <tr><td>Missing item, order $300+</td><td>Escalate before any resolution communicated</td></tr>
           <tr><td>Sourcing question — 3rd press or accusatory</td><td>Escalate immediately, tag Kevin or Leandro in Slack</td></tr>
           <tr><td>3rd exchange request (sizing)</td><td>Escalate for full refund review</td></tr>
           <tr><td>Missing size chart for a product</td><td>Flag to manager immediately</td></tr>
-          <tr><td>Chargeback / Dispute filed</td><td>Gather evidence immediately; escalate to Kevin</td></tr>
+          <tr><td>Chargeback / Dispute filed</td><td>Abby gathers evidence in Commslayer; escalate to Kevin if needed</td></tr>
+          <tr><td>Instagram thread</td><td>Reply before marking read</td></tr>
         </tbody>
       </table>
     </div>
     <div class="alert yellow" style="margin-top: 16px; margin-bottom: 0;">
       <span class="alert-icon">⚠️</span>
-      <div>Slack: <strong>#ops-support-escalations</strong> for all escalations. Tag <strong>Kevin</strong> or <strong>Leandro</strong> with a case summary. All support emails go out under <strong>Tina M. &lt;support@ellisonandfitz.com&gt;</strong></div>
+      <div>Slack: <strong>#ops-support-escalations</strong> for all escalations. Tag <strong>Kevin</strong> or <strong>Leandro</strong> with a case summary. All support emails go out under <strong>Ellison &amp; Fitz Support / Tina M.</strong> from <strong>info@ellisonandfitz.com</strong>.</div>
+    </div>
+  </div>
+
+  <!-- ─── SECTION: TRUSTPILOT ─── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⭐</span>
+      <span class="section-title">Trustpilot</span>
+    </div>
+    <div class="card">
+      <h3>VA rules</h3>
+      <ul>
+        <li>Do not use AFS.</li>
+        <li>Do not gate reviews.</li>
+        <li>Do not offer a discount for a review.</li>
+        <li>Do not ask a reviewer to change or delete a review in exchange for credit.</li>
+        <li>Public replies are drafted by <strong>Mike</strong>. Nothing auto-posts.</li>
+        <li>Review invites are not live until Kevin or Leandro turns week 1 on.</li>
+      </ul>
+    </div>
+    <div class="alert yellow" style="margin-bottom: 0;">
+      <span class="alert-icon">⚠️</span>
+      <div><strong>hello@ellisonandfitz.com</strong> is marketing and the Trustpilot Business owner. CS stays on <strong>info@ellisonandfitz.com</strong>.</div>
     </div>
   </div>
 
   <footer>
-    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Last updated: August 15, 2026</strong></p>
+    <p>Ellison &amp; Fitz — VA Operations SOP Hub &nbsp;·&nbsp; <strong>Current as of September 1, 2026</strong></p>
     <p style="margin-top: 6px;">Questions? Post in <strong>#ops-support-escalations</strong> on Slack.</p>
+    <p style="margin-top: 6px;">Dated history: <a href="CHANGELOG.html">CHANGELOG</a></p>
   </footer>
 </div>
 </body>
