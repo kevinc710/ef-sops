@@ -14,7 +14,7 @@ Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and re
 - Exchange/replacement: ping Cherry only after Redo confirms out of stock in `#06-fitz-redo-external`.
 - Customer-facing CS email is **info@ellisonandfitz.com**. `hello@` is marketing and the Trustpilot Business owner. `support@` is not the live CS inbox. Sign-off stays Ellison & Fitz Support / Tina M.
 - Trustpilot on the VA SOP stays light: no AFS, no review gating, no discount-for-review, no asking a reviewer to change or delete a review for credit. Mike drafts public replies. Nothing auto-posts. Invites are not live until Kevin or Leandro turns week 1 on.
-- Ops how (see `ops/`): dropship, no warehouse; Tapestitch is POD blanks, not a Fluid Pant backup; if Redo accepts/ships and Beehiveship is still pending/paid, cancel Cherry in `#08-cherry-beehive` and do not re-ping; Shopify Flow is a draft Kevin turns on (`redo-accepted` + Slack `#04-ops-alerts`); do not wait for two trackings.
+- Ops how (see `ops/`): dropship, no warehouse; Tapestitch is POD blanks, not a Fluid Pant backup; if Redo accepts/ships and Beehiveship is still pending/paid, cancel Cherry in `#08-cherry-beehive` and do not re-ping; two Shopify Flow workflows are live (Hold Beehive when Redo has the item; Catch Redo accept) and tag `redo-accepted` + Slack `#04-ops-alerts`; do not wait for two trackings.
 - Illustration: Ellison10713Fitz — Redo shipped Mixed L to PR while Cherry was still pending paid.
 - Open Loops: Shane owns the Drive sheet. Weekday 5-item stuck ping. No Notion or ClickUp as team workspace.
 - WhatsApp: Adam reads for intake. Nobody sends unless Kevin explicitly says to send that message.

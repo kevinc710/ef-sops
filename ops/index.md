@@ -39,7 +39,7 @@ Live risk: Redo Salt Lake accepts or ships a pant while Beehiveship is still pen
 1. If Redo has accepted or shipped and Cherry/Beehiveship is still pending or paid, **cancel Cherry in `#08-cherry-beehive`**.
 2. Do not re-ping Cherry.
 3. Do not wait for two tracking numbers. Beehive dummy **TX** tracking on the `x-redo` line is a false positive. `x-redo` is the Redo protection line, not a second pant.
-4. Shopify Flow is a **draft**. Kevin turns it on. When Redo is assigned or accepts, the draft tags `redo-accepted` and posts to Slack `#04-ops-alerts`.
+4. Two Shopify Flow workflows are **live**: **Hold Beehive when Redo has the item**, and **Catch Redo accept**. When Redo is assigned or accepts, Flow tags `redo-accepted` and posts to Slack `#04-ops-alerts`.
 
 **Illustration:** Ellison10713Fitz — Redo shipped Mixed L to Puerto Rico while Cherry was still pending paid.
 
