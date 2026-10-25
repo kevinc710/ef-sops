@@ -4,6 +4,13 @@ Live SOP pages stay current. This file is the dated history of what changed.
 
 Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and rewrite the SOP body in place.
 
+## 2026-10-25
+
+- Added "Size Exchanges: Say Exchange, Not Return" to the CS page. Always call it an exchange, never a return. Order already shipped means wait for arrival, then use the Redo portal. Offer exchange or store credit before refund.
+- Steps and labels were checked on the live Redo portal on Oct 25, not copied from a help bot. There is no "Select different style" or "Exchange for same item" option and no item or reason picker. The customer clicks "Start a return", types a free-text reason, and picks a size from Redo's size buttons.
+- Label cost: our mistake means we cover it. A customer's own size swap without Checkout+ pays the return shipping fee shown on the review screen.
+- Added a size exchange customer macro that signs off as info@.
+
 ## 2026-09-01
 
 - Repo is two layers, not a third dump: live SOP pages are current how; this changelog is dated history.
