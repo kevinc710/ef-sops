@@ -4,6 +4,13 @@ Live SOP pages stay current. This file is the dated history of what changed.
 
 Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and rewrite the SOP body in place.
 
+## 2026-10-28
+
+- Redo confirmed our volume (under 100 returns a month) does not qualify for Managed Returns. No Brisbane AU hub. All returns stay on the Salt Lake City hub.
+- Redo's cheaper options: green return (no label, customer keeps the item and is refunded; Redo recommends it), cap or discount the quoted label (we absorb), or deduct the label from the refund (customer pays). Kevin chose green return.
+- Rule: use a green return when the label costs more than the order or more than about half the order total (example: $113 label on an ~$80 AU order). Otherwise normal return flow. Store credit is still offered first. Full refund beyond goodwill still needs Kevin or Leandro. Abby approves and processes the refund; Mike never touches money.
+- Rewrote "International Return Shipping" to apply by label cost, not only unsupported regions. Updated the size exchange bullet and the return fee note to point to it.
+
 ## 2026-10-25
 
 - Added "Size Exchanges: Say Exchange, Not Return" to the CS page. Always call it an exchange, never a return. Order already shipped means wait for arrival, then use the Redo portal. Offer exchange or store credit before refund.
