@@ -4,6 +4,12 @@ Live SOP pages stay current. This file is the dated history of what changed.
 
 Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and rewrite the SOP body in place.
 
+## 2026-10-30
+
+- Added "Order never shipped: full refund" to the Refund Policy section. If an order was never fulfilled and Kevin or Leandro approve the cancel, refund the full order total including shipping, tax, and the Redo "Free returns on your order" line. The core rule (discounted product subtotal only, no shipping) still applies to delivered orders.
+- Redo's invoice help page says a coverage fee refunded on a cancelled order is deducted from our next Redo invoice, so the $5 is not a loss. This comes from Redo's public help page, not a confirmation on our account. After delivery the Redo fee is still not refunded.
+- Example order: Ellison11807Fitz (Willa Crop Jacket, never fulfilled, refunded $96.13 in full on Kevin's Oct 29 decision).
+
 ## 2026-10-28
 
 - Redo confirmed our volume (under 100 returns a month) does not qualify for Managed Returns. No Brisbane AU hub. All returns stay on the Salt Lake City hub.
