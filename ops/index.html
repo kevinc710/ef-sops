@@ -293,7 +293,22 @@
   .badge.status-live { background: var(--accent-light); color: var(--accent-dark); border: 1px solid #b2e5d9; }
   .badge.status-open { background: var(--warn-light); color: #92400e; border: 1px solid #fde68a; }
   .badge.status-off { background: var(--danger-light); color: #991b1b; border: 1px solid #fecaca; }
+  .badge.status-shipped { background: var(--accent-light); color: var(--accent-dark); border: 1px solid #b2e5d9; }
+  .badge.status-approved { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+  .badge.status-kevin { background: var(--danger-light); color: #991b1b; border: 1px solid #fecaca; }
+  .badge.status-supplier { background: var(--warn-light); color: #92400e; border: 1px solid #fde68a; }
+  .badge.status-nosource { background: var(--none-light); color: var(--none); border: 1px solid var(--border); }
+  .badge.status-risk { background: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  .stamp { font-size: 12.5px; color: var(--muted); margin: -4px 0 16px; }
+  .badge-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .callout.kevin { border-left-color: var(--danger); background: #fffbfb; }
+  .callout.kevin ol { padding-left: 20px; margin-top: 8px; }
+  .callout.kevin li { font-size: 14px; color: #3a3a3a; margin-bottom: 6px; line-height: 1.55; }
+  .callout.kevin li:last-child { margin-bottom: 0; }
+  .order-id { font-family: var(--mono); font-size: 12.5px; font-weight: 600; }
+  .tracker-table { min-width: 860px; }
 
   /* ─── LEGEND ─── */
   .legend {
@@ -462,6 +477,7 @@
     <a href="#coverage">Supplier coverage</a>
     <a class="sub" href="#routing">Routing rule</a>
     <a class="sub" href="#products">Coverage table</a>
+    <a class="sub" href="#order-tracker">Order tracker</a>
     <a class="sub" href="#open-items">Open items</a>
     <a href="#double-ship">Double-ship</a>
     <a href="#trustpilot">Trustpilot week 1</a>
@@ -664,8 +680,8 @@
               <td data-label="Product" class="prod">Camille Knit</td>
               <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry default</span><br><span class="badge lay" style="margin-top: 4px;"><span class="badge-dot"></span>Lay backup</span></td>
               <td data-label="Colors covered / gaps" class="notes">Cherry has Black and Apricot only. Lay can do White, Khaki, Black, and Brown at $20.29 shipped. Burgundy is unavailable from anyone. Emerald and Burgundy are blocked on the listing.</td>
-              <td data-label="Status"><span class="badge status-live">Shipped by Lay</span><div class="notes" style="margin-top: 6px;">Ellison11756Fitz shipped by Lay on Nov 17. A Hart copy of that order was cancelled Nov 18.</div></td>
-              <td data-label="Last update" class="date">2026-11-18</td>
+              <td data-label="Status"><span class="badge status-shipped">Shipped by Lay</span><div class="notes" style="margin-top: 6px;">Ellison11756Fitz (White S) shipped by Lay on Nov 17 at $20.29, tracking sent. A Hart copy was cancelled and a refund was noted on Nov 18. Confirm the Hart refund lands.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Veylan Pullover</td>
@@ -685,15 +701,15 @@
               <td data-label="Product" class="prod">Vera Wide-Leg Jeans</td>
               <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
               <td data-label="Colors covered / gaps" class="notes">Hart is the fulfillment path.</td>
-              <td data-label="Status"><span class="badge status-live">Approved to Hart</span><div class="notes" style="margin-top: 6px;">Kevin approved sending incoming Vera jean orders to Hart when Cherry leaves them unfulfilled. Ellison11745Fitz was paid to Hart on Nov 17.</div></td>
-              <td data-label="Last update" class="date">2026-11-17</td>
+              <td data-label="Status"><span class="badge status-approved">Approved, waiting to ship</span><div class="notes" style="margin-top: 6px;">Kevin approved sending incoming Vera jean orders to Hart when Cherry leaves them unfulfilled. Ellison11745Fitz was paid to Hart on Nov 17. No tracking yet.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Vera Rib Set</td>
               <td data-label="Supplier"><span class="badge none">None confirmed</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Lay offered a similar item only.</td>
-              <td data-label="Status"><span class="badge status-off">Similar rejected Nov 10</span><div class="notes" style="margin-top: 6px;">Do not ship a substitute without a new OK from Kevin.</div></td>
-              <td data-label="Last update" class="date">2026-11-10</td>
+              <td data-label="Colors covered / gaps" class="notes">Lay offered a similar item only. Similar rejected Nov 10. Ellison12361Fitz is Grey / M.</td>
+              <td data-label="Status"><span class="badge status-nosource">No source</span><div class="notes" style="margin-top: 6px;">Kevin approved a refund on Nov 11 for Ellison12361Fitz. Do not ship a substitute without a new OK from Kevin.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Maren Lantern Pullover</td>
@@ -720,35 +736,35 @@
               <td data-label="Product" class="prod">Faye Brushed Pullover</td>
               <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry</span></td>
               <td data-label="Colors covered / gaps" class="notes">A thicker supplier was sourced. Site price moved to $49.99 on Nov 17 (COGS $12.96 to $16.52).</td>
-              <td data-label="Status"><span class="badge status-open">Wait on Cherry</span><div class="notes" style="margin-top: 6px;">On Nov 17 Kevin told Abby not to switch these to Hart yet.</div></td>
-              <td data-label="Last update" class="date">2026-11-17</td>
+              <td data-label="Status"><span class="badge status-supplier">Wait on Cherry</span><div class="notes" style="margin-top: 6px;">On Nov 17 Kevin told Abby not to switch these to Hart yet. As of Nov 21, Cherry's chat has no per-order backlog beyond this batch waiting on the factory.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Freya Zip Pullover</td>
               <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry</span><div class="notes" style="margin-top: 4px;">for colors she can match</div></td>
-              <td data-label="Colors covered / gaps" class="notes">Butter and Grey do not match the Temu listing and are blocked (OOS) on the store. Camel, Navy, Olive, and Pink were kept live. Hart is offering a similar color only for Ellison11893Fitz and Ellison11934Fitz, pending Kevin.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Butter / Grey stays blocked. As of Nov 21, 11874 (Butter L), 11888 (Butter 4XL and Grey 4XL), 11893 (Camel XL and Olive XL), and 11934 (Butter S) were still unfulfilled.</div></td>
+              <td data-label="Colors covered / gaps" class="notes">Butter and Grey do not match the Temu listing and are blocked (OOS) on the store. Camel, Navy, Olive, and Pink were kept live. Hart is offering a similar color only for Ellison11893Fitz and Ellison11934Fitz, pending Kevin. No price yet.</td>
+              <td data-label="Status"><span class="badge status-kevin">Waiting on Kevin</span><div class="notes" style="margin-top: 6px;">Butter / Grey stays blocked. As of Nov 21, 11874 (Butter L), 11888 (Butter 4XL and Grey 4XL), 11893 (Camel XL and Olive XL), and 11934 (Butter S) were still unfulfilled.</div></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Nola Pleated Clutch</td>
               <td data-label="Supplier"><span class="badge none wrap">Cherry factory dropped the run</span></td>
-              <td data-label="Colors covered / gaps" class="notes">The factory cancelled production for low volume (Ellison12739Fitz, Ellison12267Fitz, then Ellison12896Fitz). Lay's MOQ is 100. Hart has only a close match in White at $18.70, pending Kevin.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Do not ship a similar bag unless Kevin approves it.</div></td>
+              <td data-label="Colors covered / gaps" class="notes">The factory cancelled production for low volume (Ellison12739Fitz, Ellison12267Fitz, then Ellison12896Fitz). Lay's MOQ is 100. Hart has a close/similar match in White at $18.70.</td>
+              <td data-label="Status"><span class="badge status-approved">12739 approved, waiting to ship</span><div class="notes" style="margin-top: 6px;">Kevin approved the similar style for Ellison12739Fitz on Nov 16 at $18.70. No tracking yet. Ellison12267Fitz and Ellison12896Fitz are Apricot and still waiting on Kevin; only white is available.</div></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Tavish Knit Pullover</td>
               <td data-label="Supplier"><span class="badge lay wrap"><span class="badge-dot"></span>Lay (similar, approved)</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Cherry could not find an exact match (neckline and buttons differed). Hart had none. Kevin approved Lay's similar item on Nov 19.</td>
-              <td data-label="Status"><span class="badge status-live">Lay is fulfilling</span><div class="notes" style="margin-top: 6px;">Lay is fulfilling the approved similar.</div></td>
-              <td data-label="Last update" class="date">2026-11-19</td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry could not find an exact match (neckline and buttons differed). Hart had none. Kevin approved Lay's similar item on Nov 19. Lay quote is $26.85.</td>
+              <td data-label="Status"><span class="badge status-risk wrap">Approved, double-sourcing risk</span><div class="notes" style="margin-top: 6px;">Abby told Lay to ship Ellison12914Fitz on Nov 20 at 7:49 PM. Kevin's Nov 20 message says it was already purchased (via Cherry). Confirm only one source ships.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Varen Suede Jacket</td>
               <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay pending</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Lay does not have Blue 4XL. Other colors are still pending from Lay.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Lay does not have Blue 4XL on Ellison13098Fitz. Abby asked which other colors are available.</td>
+              <td data-label="Status"><span class="badge status-supplier">Waiting on supplier</span></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
@@ -762,8 +778,8 @@
               <td data-label="Product" class="prod">Brielle Flora Cardigan</td>
               <td data-label="Supplier"><span class="badge none wrap">Cherry OOS on Coffee / L</span></td>
               <td data-label="Colors covered / gaps" class="notes">Coffee / L on Ellison13065Fitz is out of stock and will not be restocked. Lay and Hart have none.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Kevin asked Abby on Nov 18 to ask the other suppliers; neither had it.</div></td>
-              <td data-label="Last update" class="date">2026-11-18</td>
+              <td data-label="Status"><span class="badge status-nosource">No source</span><div class="notes" style="margin-top: 6px;">Kevin asked Abby on Nov 18 to ask the other suppliers; neither had it. Go to the can't-source SOP (swap or refund) and don't wait.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Beck Waffle Polo</td>
@@ -775,40 +791,225 @@
             <tr>
               <td data-label="Product" class="prod">Elowen Knit Pullover</td>
               <td data-label="Supplier"><span class="badge none">None for Ivory</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Ivory / XL was OOS at Cherry (Black only in stock). Lay's MOQ is 100. Hart is OOS.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Ellison12573Fitz was the order Cherry flagged.</div></td>
+              <td data-label="Colors covered / gaps" class="notes">Ivory / XL was OOS at Cherry (Black only in stock). Hart and Lay are both out of stock. Lay's MOQ is 100.</td>
+              <td data-label="Status"><span class="badge status-nosource">No source</span><div class="notes" style="margin-top: 6px;">Ellison12573Fitz was the order Cherry flagged. Go to the can't-source SOP (swap or refund) and don't wait.</div></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Aveline Knit Sweater</td>
               <td data-label="Supplier"><span class="badge none">None for Pink</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Cherry's supplier never made Pink / L (Ellison12247Fitz). Lay and Hart offered similar only; those were rejected.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">No exact Pink source.</div></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry's supplier never made Pink / L (Ellison12247Fitz). Lay and Hart offered similar only; Kevin said the similar is not close enough.</td>
+              <td data-label="Status"><span class="badge status-nosource">No source</span><div class="notes" style="margin-top: 6px;">No exact Pink source. Go to the can't-source SOP (swap or refund) and don't wait.</div></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Rocco Button Top (Coffee)</td>
               <td data-label="Supplier"><span class="badge none">None</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Cherry did not have the exact Coffee version.</td>
-              <td data-label="Status"><span class="badge status-off">Coffee line cancelled Nov 18</span><div class="notes" style="margin-top: 6px;">Ellison12891Fitz. A separate Rocco Fuzzy Shirt short-vs-long-sleeve similar was approved by Kevin on Nov 4 ("close enough, please ship").</div></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry did not have the exact Coffee version. Neither Hart nor Lay has it. Hart asked us to stop repeat inquiries.</td>
+              <td data-label="Status"><span class="badge status-nosource">No source</span><div class="notes" style="margin-top: 6px;">Coffee line cancelled Nov 18 (Ellison12891Fitz). A separate Rocco Fuzzy Shirt short-vs-long-sleeve similar was approved by Kevin on Nov 4 ("close enough, please ship").</div></td>
               <td data-label="Last update" class="date">2026-11-18</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Maisie Heart Top</td>
-              <td data-label="Supplier"><span class="badge none">None yet</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Hart has none. Lay is pending.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay pending</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart has no identical. Ellison12926Fitz is White / XL, waiting on Lay.</td>
+              <td data-label="Status"><span class="badge status-supplier">Waiting on supplier</span></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
             <tr>
               <td data-label="Product" class="prod">Linnea Pearl Top</td>
-              <td data-label="Supplier"><span class="badge none">None yet</span></td>
-              <td data-label="Colors covered / gaps" class="notes">Hart has none. Lay is pending.</td>
-              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay on 11283</span><br><span class="badge none" style="margin-top: 4px;">No source on 11661</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart has none. Ellison11283Fitz is with Lay (Lay said "please wait" on Nov 20; the rest of that order was processed). Ellison11661Fitz has no source.</td>
+              <td data-label="Status"><span class="badge status-supplier">11283 waiting on supplier</span><div class="notes" style="margin-top: 6px;">Ellison11661Fitz: no source; go to the can't-source SOP (swap or refund) and don't wait.</div></td>
               <td data-label="Last update" class="date">2026-11-21</td>
             </tr>
+            <tr>
+              <td data-label="Product" class="prod">Riven Snap Pant</td>
+              <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay pending</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart has no match. Lay hasn't answered on Ellison13046Fitz.</td>
+              <td data-label="Status"><span class="badge status-supplier">Waiting on supplier</span></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <div id="order-tracker" style="scroll-margin-top: 80px;">
+      <div class="section-header" style="margin-top: 28px;">
+        <span class="section-icon">📋</span>
+        <span class="section-title" style="font-size: 16px;">Order tracker (backup suppliers)</span>
+        <span class="section-badge updated">As of Nov 21, 2026 2:50 PM CT</span>
+      </div>
+      <p class="stamp">This is the order-level view of who is fulfilling what through Hart and Lay, so nothing gets lost across the WhatsApp groups.</p>
+
+      <div class="badge-legend" aria-label="Status badges">
+        <span class="badge status-shipped"><span class="badge-dot"></span>Shipped</span>
+        <span class="badge status-approved"><span class="badge-dot"></span>Approved, waiting to ship</span>
+        <span class="badge status-kevin"><span class="badge-dot"></span>Waiting on Kevin</span>
+        <span class="badge status-supplier"><span class="badge-dot"></span>Waiting on supplier</span>
+        <span class="badge status-nosource"><span class="badge-dot"></span>No source (refund/swap per can't-source SOP)</span>
+      </div>
+
+      <div class="callout kevin" id="needs-kevin">
+        <h3>Needs Kevin</h3>
+        <ol>
+          <li><strong>Nola 12267 / 12896:</strong> white yes/no.</li>
+          <li><strong>Freya 11893 / 11934:</strong> similar color yes/no.</li>
+          <li><strong>Tavish 12914:</strong> confirm only one source ships.</li>
+          <li><strong>Lay's 11/20 "acceptable?"</strong> with no item named, which Kevin answered "yes" on 11/21. Confirm which item.</li>
+          <li><strong>Lay's total</strong> for everything is still outstanding.</li>
+        </ol>
+      </div>
+
+      <div class="card table-card" style="padding: 0; scroll-margin-top: 80px;">
+        <div class="table-wrap">
+          <table class="sop-table tracker-table table-stack">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Product</th>
+                <th>Supplier</th>
+                <th>Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11756Fitz</td>
+                <td data-label="Product" class="prod">Camille Knit Sweater, white S</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-shipped">Shipped</span></td>
+                <td data-label="Note" class="notes">Lay $20.29, tracking sent 11/17. Hart copy cancelled, refund noted 11/18. Confirm the Hart refund lands.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12739Fitz</td>
+                <td data-label="Product" class="prod">Nola Pleated Clutch (similar style)</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
+                <td data-label="Note" class="notes">$18.70, Kevin approved 11/16. No tracking yet.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11745Fitz</td>
+                <td data-label="Product" class="prod">Vera Wide-Leg Jean</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
+                <td data-label="Note" class="notes">Paid 11/17. No tracking yet.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11199Fitz</td>
+                <td data-label="Product" class="prod">(item not named)</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
+                <td data-label="Note" class="notes">Paid 11/9.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12914Fitz</td>
+                <td data-label="Product" class="prod">Tavish Knit Pullover</td>
+                <td data-label="Supplier"><span class="badge lay wrap"><span class="badge-dot"></span>Lay (similar)</span></td>
+                <td data-label="Status"><span class="badge status-risk wrap">Approved, double-sourcing risk</span></td>
+                <td data-label="Note" class="notes">Kevin said yes to similar 11/19, Abby told Lay to ship 11/20 7:49 PM, Lay quote $26.85. Kevin's 11/20 message says it was already purchased (via Cherry). Confirm only one source ships.</td>
+              </tr>
+              <tr>
+                <td data-label="Order"><span class="order-id">Ellison12267Fitz</span><br><span class="order-id">Ellison12896Fitz</span></td>
+                <td data-label="Product" class="prod">Nola Pleated Clutch, Apricot</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-kevin">Waiting on Kevin</span></td>
+                <td data-label="Note" class="notes">Only white available.</td>
+              </tr>
+              <tr>
+                <td data-label="Order"><span class="order-id">Ellison11893Fitz</span><br><span class="order-id">Ellison11934Fitz</span></td>
+                <td data-label="Product" class="prod">Freya Zip Pullover</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-kevin">Waiting on Kevin</span></td>
+                <td data-label="Note" class="notes">Similar color only, no price yet.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11283Fitz</td>
+                <td data-label="Product" class="prod">Linnea Pearl Top (rest of order processed)</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
+                <td data-label="Note" class="notes">Lay "please wait" 11/20.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison13098Fitz</td>
+                <td data-label="Product" class="prod">Varen Suede Jacket, Blue/4XL</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
+                <td data-label="Note" class="notes">No blue, Abby asked which other colors.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison13046Fitz</td>
+                <td data-label="Product" class="prod">Riven Snap Pant</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
+                <td data-label="Note" class="notes">Hart has no match. Lay hasn't answered.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12926Fitz</td>
+                <td data-label="Product" class="prod">Maisie Heart Top, White/XL</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
+                <td data-label="Note" class="notes">Hart has no identical.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12361Fitz</td>
+                <td data-label="Product" class="prod">Vera Rib Set, Grey/M</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes">Kevin approved a refund 11/11.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12573Fitz</td>
+                <td data-label="Product" class="prod">Elowen Knit Pullover, Ivory/XL</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes">Hart and Lay both out of stock.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12247Fitz</td>
+                <td data-label="Product" class="prod">Aveline Knit Sweater, Pink/L</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes">Kevin said the similar is not close enough.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12751Fitz</td>
+                <td data-label="Product" class="prod">Size 45.5 (product not named)</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes">Lay's max is 44, Hart has no stock.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12891Fitz</td>
+                <td data-label="Product" class="prod">Rocco Button Top, Coffee/L</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes">Neither has it. Hart asked us to stop repeat inquiries.</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11661Fitz</td>
+                <td data-label="Product" class="prod">Linnea Pearl Top</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison13065Fitz</td>
+                <td data-label="Product" class="prod">Brielle Flora Cardigan, Coffee/L</td>
+                <td data-label="Supplier"><span class="badge none">None</span></td>
+                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="alert yellow" style="margin-top: 16px; margin-bottom: 0;">
+        <span class="alert-icon">⚠️</span>
+        <div>Per Kevin's 11/14 rule, when neither Hart nor Lay can source an item, go straight to the can't-source SOP (offer a swap or refund) and don't wait. Cherry is the default for everything else. Cherry's chat has no per-order backlog beyond the Faye Brushed Pullover batch waiting on the factory.</div>
       </div>
     </div>
 
@@ -819,28 +1020,52 @@
       </div>
       <div class="status-grid">
         <div class="status-card">
-          <h3>Freya <span class="badge status-open">Waiting on Kevin</span></h3>
-          <p>Hart's similar-color offer for 11893 and 11934 is waiting on Kevin. Butter and Grey stay blocked. Several mid-October Freya lines were still unfulfilled as of Nov 21.</p>
+          <h3>Freya <span class="badge status-kevin">Waiting on Kevin</span></h3>
+          <p>Hart's similar-color offer for Ellison11893Fitz and Ellison11934Fitz is waiting on Kevin. No price yet. Butter and Grey stay blocked. Several mid-October Freya lines were still unfulfilled as of Nov 21, including 11874 and 11888.</p>
         </div>
         <div class="status-card">
-          <h3>Nola Clutch <span class="badge status-open">Waiting on Kevin</span></h3>
-          <p>Hart's close White at $18.70 is waiting on Kevin. Lay's MOQ is 100.</p>
+          <h3>Nola Clutch <span class="badge status-approved wrap">12739 waiting to ship</span> <span class="badge status-kevin">12267 / 12896 waiting on Kevin</span></h3>
+          <p>Ellison12739Fitz (similar style) was approved to Hart on Nov 16 at $18.70 and is waiting to ship; no tracking yet. Ellison12267Fitz and Ellison12896Fitz (Apricot) are waiting on Kevin; only white is available. Lay's MOQ is 100.</p>
         </div>
         <div class="status-card">
-          <h3>Varen Suede Jacket <span class="badge status-open">Pending Lay</span></h3>
-          <p>Lay has no Blue 4XL. Other colors still pending from Lay.</p>
+          <h3>Tavish 12914 <span class="badge status-risk wrap">Approved, double-sourcing risk</span></h3>
+          <p>Kevin said yes to the similar on Nov 19. Abby told Lay to ship on Nov 20 at 7:49 PM. Lay quote is $26.85. Kevin's Nov 20 message says it was already purchased (via Cherry). Confirm only one source ships.</p>
         </div>
         <div class="status-card">
-          <h3>Maisie Heart Top and Linnea Pearl Top <span class="badge status-open">Pending Lay</span></h3>
-          <p>Hart has none. Lay is pending.</p>
+          <h3>Varen Suede Jacket <span class="badge status-supplier">Waiting on supplier</span></h3>
+          <p>Ellison13098Fitz Blue/4XL: Lay has no blue. Abby asked which other colors.</p>
         </div>
         <div class="status-card">
-          <h3>Lay prepaid balance <span class="badge status-open">Needs top-up</span></h3>
-          <p>Needs a top-up from Kevin before more Lay orders can be placed.</p>
+          <h3>Maisie Heart Top <span class="badge status-supplier">Waiting on supplier</span></h3>
+          <p>Ellison12926Fitz White/XL is with Lay. Hart has no identical.</p>
         </div>
         <div class="status-card">
-          <h3>Lay total pending <span class="badge status-open">Not locked</span></h3>
-          <p>Abby was still organizing the orders she sent Lay and Hart as of Nov 20. The dollar total is not locked in this playbook yet.</p>
+          <h3>Linnea Pearl Top <span class="badge status-supplier">11283 waiting on Lay</span> <span class="badge status-nosource">11661 no source</span></h3>
+          <p>Ellison11283Fitz is with Lay (Lay said "please wait" on Nov 20); the rest of that order was processed. Ellison11661Fitz has no source.</p>
+        </div>
+        <div class="status-card">
+          <h3>Riven Snap Pant <span class="badge status-supplier">Waiting on supplier</span></h3>
+          <p>Ellison13046Fitz is with Lay. Hart has no match. Lay hasn't answered.</p>
+        </div>
+        <div class="status-card">
+          <h3>Camille 11756 <span class="badge status-shipped">Shipped</span></h3>
+          <p>Ellison11756Fitz shipped by Lay on Nov 17 at $20.29, tracking sent. A Hart copy was cancelled and a refund was noted on Nov 18. Confirm the Hart refund lands.</p>
+        </div>
+        <div class="status-card">
+          <h3>Lay's 11/20 "acceptable?" <span class="badge status-kevin">Waiting on Kevin</span></h3>
+          <p>Lay asked "acceptable?" on Nov 20 with no item named. Kevin answered "yes" on Nov 21. Confirm which item.</p>
+        </div>
+        <div class="status-card">
+          <h3>Lay's total <span class="badge status-kevin">Outstanding</span></h3>
+          <p>Lay's total for everything is still outstanding.</p>
+        </div>
+        <div class="status-card">
+          <h3>No source <span class="badge status-nosource">Can't-source SOP</span></h3>
+          <p>Per Kevin's Nov 14 rule, go straight to a swap or refund and don't wait: Ellison12361Fitz Vera Rib Set Grey/M (Kevin approved a refund Nov 11); Ellison12573Fitz Elowen Ivory/XL (Hart and Lay both out of stock); Ellison12247Fitz Aveline Pink/L (similar not close enough); Ellison12751Fitz size 45.5 (product not named; Lay's max is 44, Hart has no stock); Ellison12891Fitz Rocco Coffee/L (neither has it; Hart asked us to stop repeat inquiries); Ellison11661Fitz Linnea Pearl Top; Ellison13065Fitz Brielle Flora Cardigan Coffee/L.</p>
+        </div>
+        <div class="status-card">
+          <h3>Tracking not in yet <span class="badge status-approved">Approved, waiting to ship</span></h3>
+          <p>No tracking yet on Ellison12739Fitz (Nola similar, paid/approved 11/16), Ellison11745Fitz (Vera jean, paid 11/17), and Ellison11199Fitz (item not named, paid 11/9).</p>
         </div>
       </div>
     </div>
