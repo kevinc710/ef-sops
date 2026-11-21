@@ -6,6 +6,7 @@ Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and re
 
 ## 2026-11-21
 
+- Added an "Order tracker (backup suppliers)" section to the ops playbook, as of Nov 21, 2026 2:50 PM CT, so it is clear who is fulfilling what at order level through Hart and Lay. It includes a Needs Kevin callout, status-badged order rows, and Kevin's Nov 14 can't-source rule (swap or refund, don't wait). Cherry remains the default; Cherry's chat has no per-order backlog beyond the Faye Brushed Pullover batch waiting on the factory. Open items and the per-product coverage table were updated to match. The CS page is unchanged.
 - Restyled the ops playbook as a visual HTML page (`ops/index.html`) using the same design system as the CS SOP (`index.html`). Supplier coverage now has a color-coded supplier legend, a routing-rule callout, a product-by-supplier table with badges, and open items as status cards. Every ops section is nav-linked. Content is unchanged. The CS page is unchanged. `ops/index.md` was replaced so `/ops/` still resolves.
 - Added a "Supplier coverage (as of 2026-11-21)" section to the ops playbook (`ops/index.md`). Cherry/Beehiveship is the default fulfillment partner. Fluid Pant stays Cherry/Beehive only, never Hart or Lay. For other live listings, Abby may ask Hart (Wiio) or Lay (WhatsApp) when Cherry cannot source the item or cannot match the live listing.
 - Replaced the stale ops line "Dropsure / Lay: Do not use. Do not ping." Lay and Hart are backups for non-Fluid products only. Slack `#07-lay-dropsure` is dead; Lay work is WhatsApp.
