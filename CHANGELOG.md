@@ -4,6 +4,13 @@ Live SOP pages stay current. This file is the dated history of what changed.
 
 Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and rewrite the SOP body in place.
 
+## 2026-11-21
+
+- Added a "Supplier coverage (as of 2026-11-21)" section to the ops playbook (`ops/index.md`). Cherry/Beehiveship is the default fulfillment partner. Fluid Pant stays Cherry/Beehive only, never Hart or Lay. For other live listings, Abby may ask Hart (Wiio) or Lay (WhatsApp) when Cherry cannot source the item or cannot match the live listing.
+- Replaced the stale ops line "Dropsure / Lay: Do not use. Do not ping." Lay and Hart are backups for non-Fluid products only. Slack `#07-lay-dropsure` is dead; Lay work is WhatsApp.
+- The CS page (`index.html`) is unchanged. VAs still do not ping Lay or Hart on Fluid Pant exchanges. The per-product coverage table and routing rule live in `ops/`.
+- Exact match to the listing is required. A "similar" item ships only with Kevin's explicit OK. Check Meta ads before drafting a product.
+
 ## 2026-10-25
 
 - Added "Size Exchanges: Say Exchange, Not Return" to the CS page. Always call it an exchange, never a return. Order already shipped means wait for arrival, then use the Redo portal. Offer exchange or store credit before refund.
