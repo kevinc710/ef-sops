@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ellison &amp; Fitz — Backend Ops Playbook</title>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f9f9f7;
+    --surface: #ffffff;
+    --border: #e5e5e0;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #1a9b7b;
+    --accent-light: #e6f7f3;
+    --accent-dark: #147a62;
+    --warn: #d97706;
+    --warn-light: #fef3c7;
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+    --radius: 10px;
+    --font: "Inter", sans-serif;
+    --mono: "JetBrains Mono", monospace;
+    --cherry: #1a9b7b;
+    --cherry-light: #e6f7f3;
+    --cherry-dark: #147a62;
+    --hart: #2563eb;
+    --hart-light: #eff6ff;
+    --hart-dark: #1e40af;
+    --lay: #7c3aed;
+    --lay-light: #f5f3ff;
+    --lay-dark: #5b21b6;
+    --none: #6b6b6b;
+    --none-light: #f0f0ee;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 16px;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .nav-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .nav-link:hover { color: var(--text); }
+  .nav-badge {
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid #b2e5d9;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ─── LAYOUT ─── */
+  .layout {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    min-width: 0;
+  }
+  main { min-width: 0; }
+
+  /* ─── SIDE NAV ─── */
+  .sidenav {
+    position: sticky;
+    top: 72px;
+    align-self: start;
+  }
+  .sidenav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+  .sidenav a {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border-left: 2px solid transparent;
+    margin-left: -2px;
+  }
+  .sidenav a:hover { color: var(--text); background: #f0f0ee; }
+  .sidenav a.sub { padding-left: 20px; font-size: 12.5px; font-weight: 400; }
+
+  /* ─── HERO ─── */
+  .hero { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .hero h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 12px; }
+  .hero p { color: var(--muted); max-width: 640px; }
+  .hero a { color: var(--accent-dark); font-weight: 500; }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .meta-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .meta-chip strong { color: var(--text); font-weight: 600; }
+
+  /* ─── ALERT BOX ─── */
+  .alert {
+    display: flex;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .alert.green { background: var(--accent-light); border: 1px solid #b2e5d9; color: var(--accent-dark); }
+  .alert.yellow { background: var(--warn-light); border: 1px solid #fde68a; color: #92400e; }
+  .alert.red { background: var(--danger-light); border: 1px solid #fecaca; color: #991b1b; }
+  .alert-icon { font-size: 18px; flex-shrink: 0; line-height: 1.4; }
+  .alert strong { font-weight: 600; }
+
+  /* ─── SECTION ─── */
+  .section { margin-bottom: 48px; scroll-margin-top: 80px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon { font-size: 20px; }
+  .section-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+  .section-badge {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--accent-light);
+    color: var(--accent-dark);
+    border: 1px solid #b2e5d9;
+  }
+  .section-badge.updated { background: var(--warn-light); color: #92400e; border-color: #fde68a; }
+  .section-intro { font-size: 14px; color: #3a3a3a; margin-bottom: 16px; }
+  .section-intro a { color: var(--accent-dark); font-weight: 500; }
+
+  /* ─── CARDS / SUBSECTIONS ─── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li { font-size: 14px; color: #3a3a3a; line-height: 1.6; }
+  .card ul, .card ol { padding-left: 18px; margin-top: 6px; }
+  .card li { margin-bottom: 4px; }
+  .card a { color: var(--accent-dark); font-weight: 500; }
+
+  /* ─── PILLS / RULES ─── */
+  .rule-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0ee;
+    font-size: 14px;
+    color: #3a3a3a;
+  }
+  .rule-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .rule-row:first-child { padding-top: 0; }
+  .rule-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; font-weight: 700; color: var(--accent-dark); font-variant-numeric: tabular-nums; }
+
+  /* ─── TABLE ─── */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; min-width: 0; }
+  .sop-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13.5px; }
+  .sop-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    padding: 8px 12px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .sop-table td { padding: 10px 12px; border-bottom: 1px solid #f0f0ee; vertical-align: top; }
+  .sop-table tr:last-child td { border-bottom: none; }
+  .sop-table .prod { font-weight: 600; color: var(--text); }
+  .sop-table .date { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; width: 7.6em; min-width: 7.6em; }
+  .coverage-table { min-width: 820px; }
+  .coverage-table th:nth-child(1), .coverage-table td:nth-child(1) { min-width: 140px; }
+  .coverage-table th:nth-child(2), .coverage-table td:nth-child(2) { min-width: 150px; }
+  .coverage-table th:nth-child(3), .coverage-table td:nth-child(3) { min-width: 220px; }
+  .coverage-table th:nth-child(4), .coverage-table td:nth-child(4) { min-width: 180px; }
+  .notes { font-size: 13px; color: #3a3a3a; }
+
+  /* ─── SUPPLIER BADGES ─── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  .badge.wrap { white-space: normal; text-align: left; }
+  .badge.cherry { background: var(--cherry-light); color: var(--cherry-dark); border: 1px solid #b2e5d9; }
+  .badge.hart { background: var(--hart-light); color: var(--hart-dark); border: 1px solid #bfdbfe; }
+  .badge.lay { background: var(--lay-light); color: var(--lay-dark); border: 1px solid #ddd6fe; }
+  .badge.none { background: var(--none-light); color: var(--none); border: 1px solid var(--border); }
+  .badge.status-live { background: var(--accent-light); color: var(--accent-dark); border: 1px solid #b2e5d9; }
+  .badge.status-open { background: var(--warn-light); color: #92400e; border: 1px solid #fde68a; }
+  .badge.status-off { background: var(--danger-light); color: #991b1b; border: 1px solid #fecaca; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* ─── LEGEND ─── */
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .legend-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    border-top: 3px solid var(--border);
+  }
+  .legend-card.cherry { border-top-color: var(--cherry); }
+  .legend-card.hart { border-top-color: var(--hart); }
+  .legend-card.lay { border-top-color: var(--lay); }
+  .legend-card p { font-size: 13px; color: #3a3a3a; margin-top: 8px; line-height: 1.5; }
+  .legend-title { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; }
+
+  /* ─── ROUTING CALLOUT ─── */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--accent);
+  }
+  .callout h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+
+  /* ─── STATUS / OPEN ITEM CARDS ─── */
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .status-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+  }
+  .status-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .status-card p { font-size: 13.5px; color: #3a3a3a; line-height: 1.55; }
+
+  /* ─── ESCALATION BADGE ─── */
+  .escalate {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--danger-light);
+    border: 1px solid #fecaca;
+    color: #991b1b;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer { text-align: center; font-size: 12.5px; color: var(--muted); padding-top: 24px; border-top: 1px solid var(--border); }
+  footer strong { color: var(--text); }
+  footer a { color: var(--accent-dark); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 860px) {
+    nav { padding: 0 16px; }
+    .nav-link { display: none; }
+    .layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding: 16px 16px 64px;
+    }
+    .sidenav {
+      position: sticky;
+      top: 56px;
+      z-index: 90;
+      background: var(--bg);
+      margin: 0 -16px 24px;
+      padding: 10px 16px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 6px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100vw;
+      min-width: 0;
+    }
+    .sidenav-label { display: none; }
+    .sidenav a, .sidenav a.sub {
+      display: inline-block;
+      flex-shrink: 0;
+      border-left: none;
+      margin-left: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+    .sidenav a.sub { font-weight: 500; }
+    .hero h1 { font-size: 24px; }
+    .hero p { max-width: none; }
+    .legend { grid-template-columns: 1fr; }
+    .status-grid { grid-template-columns: 1fr; }
+    .card { padding: 16px 16px; }
+    .callout { padding: 16px; }
+
+    .card.table-card { background: transparent; border: none; padding: 0; overflow: visible; }
+    .table-stack { min-width: 0 !important; }
+    .table-stack thead { display: none; }
+    .table-stack, .table-stack tbody, .table-stack tr, .table-stack td {
+      display: block;
+      width: 100%;
+      min-width: 0 !important;
+    }
+    .table-stack tbody tr {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      padding: 14px 16px 10px;
+    }
+    .table-stack tbody tr:last-child { margin-bottom: 0; }
+    .table-stack td {
+      padding: 6px 0;
+      border-bottom: none;
+    }
+    .table-stack td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .table-stack td.prod { font-size: 15px; padding-top: 0; }
+    .table-stack td.prod::before { display: none; }
+    .table-stack td.date { width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="../"><span class="logo-dot"></span>Ellison &amp; Fitz</a>
+  <div class="nav-right">
+    <a class="nav-link" href="../">CS SOP</a>
+    <a class="nav-link" href="../CHANGELOG.md">Changelog</a>
+    <span class="nav-badge">Backend Ops</span>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <aside class="sidenav" aria-label="Playbook sections">
+    <div class="sidenav-label">On this page</div>
+    <a href="#owners">Owners</a>
+    <a href="#fulfillment">Fulfillment</a>
+    <a href="#coverage">Supplier coverage</a>
+    <a class="sub" href="#routing">Routing rule</a>
+    <a class="sub" href="#products">Coverage table</a>
+    <a class="sub" href="#open-items">Open items</a>
+    <a href="#double-ship">Double-ship</a>
+    <a href="#trustpilot">Trustpilot week 1</a>
+    <a href="#open-loops">Open Loops</a>
+    <a href="#whatsapp">WhatsApp</a>
+    <a href="#shopify">Shopify writes</a>
+  </aside>
+
+  <main>
+
+  <div class="hero">
+    <p class="hero-eyebrow">Backend Ops · Adam</p>
+    <h1>Backend Ops Playbook</h1>
+    <p>This playbook is the current operating how for dropship, double-ship, Trustpilot week 1, Open Loops, WhatsApp, Shopify writes, and supplier coverage. It does not replace the CS SOP. CS truth stays on the <a href="../">live SOP</a>. Dated history stays in the <a href="../CHANGELOG.md">changelog</a>.</p>
+    <div class="meta-row">
+      <span class="meta-chip"><strong>Brand:</strong> Ellison &amp; Fitz</span>
+      <span class="meta-chip"><strong>Lane:</strong> Backend ops (Adam)</span>
+      <span class="meta-chip"><strong>Status:</strong> Current how. Not a week-by-week recap.</span>
+      <span class="meta-chip"><strong>Not for:</strong> VA customer-support pages</span>
+    </div>
+  </div>
+
+  <!-- ─── OWNERS ─── -->
+  <div class="section" id="owners">
+    <div class="section-header">
+      <span class="section-icon">👥</span>
+      <span class="section-title">Owners</span>
+    </div>
+    <div class="card table-card" style="padding: 0;">
+      <div class="table-wrap">
+        <table class="sop-table table-stack" style="margin-top: 0;">
+          <thead>
+            <tr><th>Work</th><th>Owner</th><th>Must not</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Work">Backend ops, Beehiveship, double-ship cancel</td>
+              <td data-label="Owner"><strong>Adam</strong></td>
+              <td data-label="Must not">Do not dump this playbook onto VA CS pages</td>
+            </tr>
+            <tr>
+              <td data-label="Work">Live chat and first-pass tickets</td>
+              <td data-label="Owner"><strong>Mike</strong></td>
+              <td data-label="Must not">Never touches money</td>
+            </tr>
+            <tr>
+              <td data-label="Work">Refunds, store credit, Redo, chargebacks, damaged/missing</td>
+              <td data-label="Owner"><strong>Abby</strong> (Abigail Go; customer-facing name Tina)</td>
+              <td data-label="Must not">Do not work these in Gmail</td>
+            </tr>
+            <tr>
+              <td data-label="Work">High-risk cancels, Shopify writes for agents, WhatsApp send</td>
+              <td data-label="Owner"><strong>Kevin</strong></td>
+              <td data-label="Must not">Agents do not write Shopify without Kevin's explicit OK</td>
+            </tr>
+            <tr>
+              <td data-label="Work">High-risk cancels, Trustpilot week-1 go-live</td>
+              <td data-label="Owner"><strong>Leandro</strong> (with Kevin)</td>
+              <td data-label="Must not">Do not turn Trustpilot invites on until Leandro says yes</td>
+            </tr>
+            <tr>
+              <td data-label="Work">Open Loops Drive sheet</td>
+              <td data-label="Owner"><strong>Shane</strong></td>
+              <td data-label="Must not">No Notion or ClickUp as the team workspace</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="alert green" style="margin-bottom: 0;">
+      <span class="alert-icon">✅</span>
+      <div>Abby still processes CS money per the Commslayer split. That is CS, not a backend Shopify-write exception for other agents.</div>
+    </div>
+  </div>
+
+  <!-- ─── FULFILLMENT ─── -->
+  <div class="section" id="fulfillment">
+    <div class="section-header">
+      <span class="section-icon">📦</span>
+      <span class="section-title">Fulfillment</span>
+    </div>
+    <div class="alert yellow">
+      <span class="alert-icon">⚠️</span>
+      <div>We are dropship. There is no warehouse.</div>
+    </div>
+    <div class="card table-card" style="padding: 0;">
+      <div class="table-wrap">
+        <table class="sop-table table-stack" style="margin-top: 0;">
+          <thead>
+            <tr><th>Product / partner</th><th>Current how</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Product / partner"><strong>Ellison Fluid Pant</strong></td>
+              <td data-label="Current how"><strong>Cherry/Beehive only</strong>, in <strong>Beehiveship</strong>. Never Hart or Lay. Wiio/Hart is phased out for this product only.</td>
+            </tr>
+            <tr>
+              <td data-label="Product / partner"><strong>Tapestitch</strong></td>
+              <td data-label="Current how">POD blanks. Not a backup Fluid Pant supplier.</td>
+            </tr>
+            <tr>
+              <td data-label="Product / partner"><span class="badge cherry"><span class="badge-dot"></span>Cherry / Beehiveship</span></td>
+              <td data-label="Current how">Default fulfillment partner for all products. WhatsApp chat "cherry – supplier 4" and Slack <strong>#08-cherry-beehive</strong>.</td>
+            </tr>
+            <tr>
+              <td data-label="Product / partner"><span class="badge hart"><span class="badge-dot"></span>Hart / Wiio</span></td>
+              <td data-label="Current how">Backup when Cherry cannot source or cannot match the live listing. WhatsApp chat "Hart – Wio supplier 1". Paid via the Wiio balance. Not used for Fluid Pant.</td>
+            </tr>
+            <tr>
+              <td data-label="Product / partner"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+              <td data-label="Current how">Backup when Cherry cannot source or cannot match the live listing. WhatsApp chat "Lay – Supplier 3". Prepaid balance is topped up by Kevin. Slack <strong>#07-lay-dropsure</strong> is dead (Lay left; last message Aug 23, 2026). Not used for Fluid Pant.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="alert yellow" style="margin-bottom: 0;">
+      <span class="alert-icon">⚠️</span>
+      <div>Do not tell customers that Cherry/Beehive consolidation resolved hemming or sizing. Wait for Cherry to confirm a new proven supplier in writing.</div>
+    </div>
+  </div>
+
+  <!-- ─── SUPPLIER COVERAGE ─── -->
+  <div class="section" id="coverage">
+    <div class="section-header">
+      <span class="section-icon">🧭</span>
+      <span class="section-title">Supplier coverage</span>
+      <span class="section-badge updated">As of 2026-11-21</span>
+    </div>
+    <p class="section-intro">Compiled from Slack (<strong>#08-cherry-beehive</strong>, <strong>#00-kevin-leandro-ops</strong>) and WhatsApp with Cherry, Hart, and Lay. This is ops truth for who fulfills what. It does not change the CS page. VAs still do not ping Lay or Hart on Fluid Pant exchanges.</p>
+
+    <div class="legend">
+      <div class="legend-card cherry">
+        <div class="legend-title"><span class="badge cherry"><span class="badge-dot"></span>Cherry / Beehiveship</span> Default</div>
+        <p>Default fulfillment partner for every product. Work her through WhatsApp "cherry – supplier 4" and Slack #08-cherry-beehive. Fluid Pant is Cherry only.</p>
+      </div>
+      <div class="legend-card hart">
+        <div class="legend-title"><span class="badge hart"><span class="badge-dot"></span>Hart / Wiio</span> Backup</div>
+        <p>Backup when Cherry cannot source or cannot match the live listing. WhatsApp "Hart – Wio supplier 1". Payment is the Wiio balance. Not used for Fluid Pant.</p>
+      </div>
+      <div class="legend-card lay">
+        <div class="legend-title"><span class="badge lay"><span class="badge-dot"></span>Lay</span> Backup</div>
+        <p>Backup when Cherry cannot source or cannot match the live listing. WhatsApp "Lay – Supplier 3". Paid from a prepaid balance that Kevin tops up. Do not use #07-lay-dropsure; that channel is dead. Not used for Fluid Pant.</p>
+      </div>
+    </div>
+
+    <div class="callout" id="routing">
+      <h3>Routing rule</h3>
+      <div class="rule-row">
+        <span class="rule-icon">1</span>
+        <div><strong>Cherry/Beehiveship is the default</strong> for every product. Work her through WhatsApp "cherry – supplier 4" and Slack <strong>#08-cherry-beehive</strong>.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">2</span>
+        <div><strong>Fluid Pant is Cherry only.</strong> Never send Fluid Pant to Hart or Lay.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">3</span>
+        <div>When Cherry cannot source an item, or cannot match the live listing in color or style, Abby asks <strong>Hart</strong> and/or <strong>Lay</strong> before refunding.
+          <ul>
+            <li>Hart: WhatsApp "Hart – Wio supplier 1". Payment is the Wiio balance.</li>
+            <li>Lay: WhatsApp "Lay – Supplier 3". He is paid from a prepaid balance that Kevin tops up. Do not use <strong>#07-lay-dropsure</strong>; that channel is dead.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">4</span>
+        <div>The substitute must be an <strong>exact match</strong> to the live listing. A "similar" item ships only with Kevin's explicit OK. If there is no exact match and Kevin has not approved a similar, Abby offers a swap, store credit, or refund per the CS SOP.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">5</span>
+        <div><strong>Check Meta ads before drafting a product</strong> or removing a color. Do not set a running ad product to Draft without Kevin's OK.</div>
+      </div>
+    </div>
+
+    <div class="card table-card" id="products" style="padding: 0; scroll-margin-top: 80px;">
+      <div style="padding: 16px 20px 0;">
+        <h3 style="font-size: 14px; font-weight: 700; margin: 0;">Per-product coverage</h3>
+      </div>
+      <div class="table-wrap">
+        <table class="sop-table coverage-table table-stack">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Supplier</th>
+              <th>Colors covered / gaps</th>
+              <th>Status</th>
+              <th>Last update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Product" class="prod">Ellison Fluid Pant</td>
+              <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry / Beehive only</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Live colorways as on the CS SOP. Never Hart or Lay.</td>
+              <td data-label="Status"><span class="badge status-live">Standing rule</span><div class="notes" style="margin-top: 6px;">Unchanged.</div></td>
+              <td data-label="Last update" class="date">2026-08-10</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Camille Knit</td>
+              <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry default</span><br><span class="badge lay" style="margin-top: 4px;"><span class="badge-dot"></span>Lay backup</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry has Black and Apricot only. Lay can do White, Khaki, Black, and Brown at $20.29 shipped. Burgundy is unavailable from anyone. Emerald and Burgundy are blocked on the listing.</td>
+              <td data-label="Status"><span class="badge status-live">Shipped by Lay</span><div class="notes" style="margin-top: 6px;">Ellison11756Fitz shipped by Lay on Nov 17. A Hart copy of that order was cancelled Nov 18.</div></td>
+              <td data-label="Last update" class="date">2026-11-18</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Veylan Pullover</td>
+              <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Smallest size Hart can do is M. Labels are removed before ship.</td>
+              <td data-label="Status"><span class="badge status-live">Live with Hart</span><div class="notes" style="margin-top: 6px;">Lay was told not to buy it.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Kian Rivet Short</td>
+              <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+              <td data-label="Colors covered / gaps" class="notes">$28.70, US-shipped.</td>
+              <td data-label="Status"><span class="badge status-live">Live with Hart</span><div class="notes" style="margin-top: 6px;">Lay was told not to buy it. The earlier "couldn't find the same style" flag was from mid-October; confirm open orders against Hart before refunding.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Vera Wide-Leg Jeans</td>
+              <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart is the fulfillment path.</td>
+              <td data-label="Status"><span class="badge status-live">Approved to Hart</span><div class="notes" style="margin-top: 6px;">Kevin approved sending incoming Vera jean orders to Hart when Cherry leaves them unfulfilled. Ellison11745Fitz was paid to Hart on Nov 17.</div></td>
+              <td data-label="Last update" class="date">2026-11-17</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Vera Rib Set</td>
+              <td data-label="Supplier"><span class="badge none">None confirmed</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Lay offered a similar item only.</td>
+              <td data-label="Status"><span class="badge status-off">Similar rejected Nov 10</span><div class="notes" style="margin-top: 6px;">Do not ship a substitute without a new OK from Kevin.</div></td>
+              <td data-label="Last update" class="date">2026-11-10</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Maren Lantern Pullover</td>
+              <td data-label="Supplier"><span class="badge cherry wrap"><span class="badge-dot"></span>Cherry, all six colors</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Sage, Terracotta, Cream, Coffee, Sky Blue, and Navy all go through Cherry (Oct 29 decision, superseding the Oct 26 plan to skip Terracotta and source Sage from Lay or Hart). Hart and Lay had no exact Sage or Terracotta match. Terracotta has a slight shade difference that Kevin accepted.</td>
+              <td data-label="Status"><span class="badge status-live">In production / shipping</span><div class="notes" style="margin-top: 6px;">In production / shipping with Cherry. Same price as before; about one week to make.</div></td>
+              <td data-label="Last update" class="date">2026-10-29</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Maris Drape Sweater</td>
+              <td data-label="Supplier"><span class="badge cherry wrap"><span class="badge-dot"></span>Cherry, new higher-quality factory</span></td>
+              <td data-label="Colors covered / gaps" class="notes">The Nov 4 sample was approved ("much better"). Other colors at that factory need a 50-unit MOQ and are on hold. Hart's higher-end Maris offer from Oct 27 / Oct 29 is parked.</td>
+              <td data-label="Status"><span class="badge status-live">Cherry processing</span><div class="notes" style="margin-top: 6px;">Cherry is processing orders on the new quote.</div></td>
+              <td data-label="Last update" class="date">2026-11-04</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Enzo Button Knit</td>
+              <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry found a same-item link on Oct 30 after a photo-vs-goods mismatch. Hart could not get factory replies.</td>
+              <td data-label="Status"><span class="badge status-live">Cherry is fulfilling</span><div class="notes" style="margin-top: 6px;">Delayed orders were to ship within three days of Oct 30.</div></td>
+              <td data-label="Last update" class="date">2026-10-30</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Faye Brushed Pullover</td>
+              <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry</span></td>
+              <td data-label="Colors covered / gaps" class="notes">A thicker supplier was sourced. Site price moved to $49.99 on Nov 17 (COGS $12.96 to $16.52).</td>
+              <td data-label="Status"><span class="badge status-open">Wait on Cherry</span><div class="notes" style="margin-top: 6px;">On Nov 17 Kevin told Abby not to switch these to Hart yet.</div></td>
+              <td data-label="Last update" class="date">2026-11-17</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Freya Zip Pullover</td>
+              <td data-label="Supplier"><span class="badge cherry"><span class="badge-dot"></span>Cherry</span><div class="notes" style="margin-top: 4px;">for colors she can match</div></td>
+              <td data-label="Colors covered / gaps" class="notes">Butter and Grey do not match the Temu listing and are blocked (OOS) on the store. Camel, Navy, Olive, and Pink were kept live. Hart is offering a similar color only for Ellison11893Fitz and Ellison11934Fitz, pending Kevin.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Butter / Grey stays blocked. As of Nov 21, 11874 (Butter L), 11888 (Butter 4XL and Grey 4XL), 11893 (Camel XL and Olive XL), and 11934 (Butter S) were still unfulfilled.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Nola Pleated Clutch</td>
+              <td data-label="Supplier"><span class="badge none wrap">Cherry factory dropped the run</span></td>
+              <td data-label="Colors covered / gaps" class="notes">The factory cancelled production for low volume (Ellison12739Fitz, Ellison12267Fitz, then Ellison12896Fitz). Lay's MOQ is 100. Hart has only a close match in White at $18.70, pending Kevin.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Do not ship a similar bag unless Kevin approves it.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Tavish Knit Pullover</td>
+              <td data-label="Supplier"><span class="badge lay wrap"><span class="badge-dot"></span>Lay (similar, approved)</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry could not find an exact match (neckline and buttons differed). Hart had none. Kevin approved Lay's similar item on Nov 19.</td>
+              <td data-label="Status"><span class="badge status-live">Lay is fulfilling</span><div class="notes" style="margin-top: 6px;">Lay is fulfilling the approved similar.</div></td>
+              <td data-label="Last update" class="date">2026-11-19</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Varen Suede Jacket</td>
+              <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay pending</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Lay does not have Blue 4XL. Other colors are still pending from Lay.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Brielle Bow Pullover</td>
+              <td data-label="Supplier"><span class="badge none">None</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry, Hart, and Lay all could not source Pink or Powder Blue. A Cherry "similar" was rejected as too different from the listing.</td>
+              <td data-label="Status"><span class="badge status-off">Drafted Oct 30</span><div class="notes" style="margin-top: 6px;">Ads off. Affected orders refunded (including 12078, 12079, 12084, 12214, 12301).</div></td>
+              <td data-label="Last update" class="date">2026-11-14</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Brielle Flora Cardigan</td>
+              <td data-label="Supplier"><span class="badge none wrap">Cherry OOS on Coffee / L</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Coffee / L on Ellison13065Fitz is out of stock and will not be restocked. Lay and Hart have none.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Kevin asked Abby on Nov 18 to ask the other suppliers; neither had it.</div></td>
+              <td data-label="Last update" class="date">2026-11-18</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Beck Waffle Polo</td>
+              <td data-label="Supplier"><span class="badge cherry wrap"><span class="badge-dot"></span>Cherry, limited colors</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry can only do Black, White, Red, and Green, and those are not an exact listing match. Light Blue, Green, Mustard, and Coffee are unsourceable (Hart and Lay also had no exact match on the first three).</td>
+              <td data-label="Status"><span class="badge status-open">Swap or credit if large difference</span><div class="notes" style="margin-top: 6px;">If the difference is large, offer a swap or store credit. Do not ship a non-matching color without Kevin's OK.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Elowen Knit Pullover</td>
+              <td data-label="Supplier"><span class="badge none">None for Ivory</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Ivory / XL was OOS at Cherry (Black only in stock). Lay's MOQ is 100. Hart is OOS.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">Ellison12573Fitz was the order Cherry flagged.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Aveline Knit Sweater</td>
+              <td data-label="Supplier"><span class="badge none">None for Pink</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry's supplier never made Pink / L (Ellison12247Fitz). Lay and Hart offered similar only; those were rejected.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span><div class="notes" style="margin-top: 6px;">No exact Pink source.</div></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Rocco Button Top (Coffee)</td>
+              <td data-label="Supplier"><span class="badge none">None</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Cherry did not have the exact Coffee version.</td>
+              <td data-label="Status"><span class="badge status-off">Coffee line cancelled Nov 18</span><div class="notes" style="margin-top: 6px;">Ellison12891Fitz. A separate Rocco Fuzzy Shirt short-vs-long-sleeve similar was approved by Kevin on Nov 4 ("close enough, please ship").</div></td>
+              <td data-label="Last update" class="date">2026-11-18</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Maisie Heart Top</td>
+              <td data-label="Supplier"><span class="badge none">None yet</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart has none. Lay is pending.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+            <tr>
+              <td data-label="Product" class="prod">Linnea Pearl Top</td>
+              <td data-label="Supplier"><span class="badge none">None yet</span></td>
+              <td data-label="Colors covered / gaps" class="notes">Hart has none. Lay is pending.</td>
+              <td data-label="Status"><span class="badge status-open">Open</span></td>
+              <td data-label="Last update" class="date">2026-11-21</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="open-items" style="scroll-margin-top: 80px;">
+      <div class="section-header" style="margin-top: 28px;">
+        <span class="section-icon">⏳</span>
+        <span class="section-title" style="font-size: 16px;">Open items</span>
+      </div>
+      <div class="status-grid">
+        <div class="status-card">
+          <h3>Freya <span class="badge status-open">Waiting on Kevin</span></h3>
+          <p>Hart's similar-color offer for 11893 and 11934 is waiting on Kevin. Butter and Grey stay blocked. Several mid-October Freya lines were still unfulfilled as of Nov 21.</p>
+        </div>
+        <div class="status-card">
+          <h3>Nola Clutch <span class="badge status-open">Waiting on Kevin</span></h3>
+          <p>Hart's close White at $18.70 is waiting on Kevin. Lay's MOQ is 100.</p>
+        </div>
+        <div class="status-card">
+          <h3>Varen Suede Jacket <span class="badge status-open">Pending Lay</span></h3>
+          <p>Lay has no Blue 4XL. Other colors still pending from Lay.</p>
+        </div>
+        <div class="status-card">
+          <h3>Maisie Heart Top and Linnea Pearl Top <span class="badge status-open">Pending Lay</span></h3>
+          <p>Hart has none. Lay is pending.</p>
+        </div>
+        <div class="status-card">
+          <h3>Lay prepaid balance <span class="badge status-open">Needs top-up</span></h3>
+          <p>Needs a top-up from Kevin before more Lay orders can be placed.</p>
+        </div>
+        <div class="status-card">
+          <h3>Lay total pending <span class="badge status-open">Not locked</span></h3>
+          <p>Abby was still organizing the orders she sent Lay and Hart as of Nov 20. The dollar total is not locked in this playbook yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── DOUBLE-SHIP ─── -->
+  <div class="section" id="double-ship">
+    <div class="section-header">
+      <span class="section-icon">🚨</span>
+      <span class="section-title">Double-ship (Redo vs Cherry/Beehive)</span>
+    </div>
+    <div class="alert red">
+      <span class="alert-icon">🚨</span>
+      <div><strong>Live risk:</strong> Redo Salt Lake accepts or ships a pant while Beehiveship is still pending or paid.</div>
+    </div>
+    <div class="card">
+      <div class="rule-row">
+        <span class="rule-icon">1</span>
+        <div>If Redo has accepted or shipped and Cherry/Beehiveship is still pending or paid, <strong>cancel Cherry in #08-cherry-beehive</strong>.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">2</span>
+        <div>Do not re-ping Cherry.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">3</span>
+        <div>Do not wait for two tracking numbers. Beehive dummy <strong>TX</strong> tracking on the <code style="font-family: var(--mono); font-size: 12.5px; background: #f0f0ee; padding: 1px 5px; border-radius: 4px;">x-redo</code> line is a false positive. <code style="font-family: var(--mono); font-size: 12.5px; background: #f0f0ee; padding: 1px 5px; border-radius: 4px;">x-redo</code> is the Redo protection line, not a second pant.</div>
+      </div>
+      <div class="rule-row">
+        <span class="rule-icon">4</span>
+        <div>Two Shopify Flow workflows are <strong>live</strong>: <strong>Hold Beehive when Redo has the item</strong>, and <strong>Catch Redo accept</strong>. When Redo is assigned or accepts, Flow tags <code style="font-family: var(--mono); font-size: 12.5px; background: #f0f0ee; padding: 1px 5px; border-radius: 4px;">redo-accepted</code> and posts to Slack <strong>#04-ops-alerts</strong>.</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Illustration</h3>
+      <p>Ellison10713Fitz. Redo shipped Mixed L to Puerto Rico while Cherry was still pending paid.</p>
+    </div>
+    <div class="alert yellow" style="margin-bottom: 0;">
+      <span class="alert-icon">⚠️</span>
+      <div>Exchange/replacement for CS: only ping Cherry after Redo confirms out of stock in <strong>#06-fitz-redo-external</strong>. That rule lives on the CS SOP. Ops does not re-ping Cherry to "help" an exchange that Redo already covers.</div>
+    </div>
+  </div>
+
+  <!-- ─── TRUSTPILOT ─── -->
+  <div class="section" id="trustpilot">
+    <div class="section-header">
+      <span class="section-icon">⭐</span>
+      <span class="section-title">Trustpilot week 1 (ops)</span>
+      <span class="section-badge updated">Not live</span>
+    </div>
+    <div class="alert yellow">
+      <span class="alert-icon">⚠️</span>
+      <div>Not live. Flow stays <strong>off</strong> until Leandro says yes. Kevin or Leandro turns week 1 on.</div>
+    </div>
+    <div class="card table-card" style="padding: 0;">
+      <div class="table-wrap">
+        <table class="sop-table table-stack" style="margin-top: 0;">
+          <thead>
+            <tr><th>Rule</th><th>Current how</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Rule">Sender</td>
+              <td data-label="Current how"><strong>Klaviyo</strong>, not Commslayer, not AFS</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Trigger</td>
+              <td data-label="Current how">ParcelPanel delivered + 7 days</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Who</td>
+              <td data-label="Current how">US only</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Cap</td>
+              <td data-label="Current how">50, one invite</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Suppress</td>
+              <td data-label="Current how">Open ticket, Redo, refund, chargeback, delay, sizing-hem</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Copy</td>
+              <td data-label="Current how">How was it, and point them to <strong>info@ellisonandfitz.com</strong></td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Public replies</td>
+              <td data-label="Current how">Mike drafts. Nothing auto-posts.</td>
+            </tr>
+            <tr>
+              <td data-label="Rule">Business owner inbox</td>
+              <td data-label="Current how"><code style="font-family: var(--mono); font-size: 12.5px; background: #f0f0ee; padding: 1px 5px; border-radius: 4px;">hello@</code> is marketing / Trustpilot Business owner. CS stays on <code style="font-family: var(--mono); font-size: 12.5px; background: #f0f0ee; padding: 1px 5px; border-radius: 4px;">info@</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+      <h3>Do not</h3>
+      <ul>
+        <li>Do not use AFS.</li>
+        <li>Do not gate reviews.</li>
+        <li>Do not offer a discount for a review.</li>
+        <li>Do not ask a reviewer to change or delete a review for credit.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── OPEN LOOPS ─── -->
+  <div class="section" id="open-loops">
+    <div class="section-header">
+      <span class="section-icon">🔁</span>
+      <span class="section-title">Open Loops</span>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+      <p style="margin-bottom: 10px;">Shane owns the Drive sheet.</p>
+      <ul>
+        <li>Weekday 5-item stuck ping.</li>
+        <li>No Notion and no ClickUp as the team workspace.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── WHATSAPP ─── -->
+  <div class="section" id="whatsapp">
+    <div class="section-header">
+      <span class="section-icon">💬</span>
+      <span class="section-title">WhatsApp</span>
+    </div>
+    <div class="card" style="margin-bottom: 0;">
+      <p>Adam reads WhatsApp for intake.</p>
+      <p style="margin-top: 8px;">Nobody sends a WhatsApp message unless Kevin explicitly says to send that message.</p>
+    </div>
+  </div>
+
+  <!-- ─── SHOPIFY WRITES ─── -->
+  <div class="section" id="shopify">
+    <div class="section-header">
+      <span class="section-icon">🛍️</span>
+      <span class="section-title">Shopify writes</span>
+    </div>
+    <div class="card">
+      <p>Shopify writes for agents require Kevin's explicit OK.</p>
+    </div>
+    <div class="alert green" style="margin-bottom: 0;">
+      <span class="alert-icon">✅</span>
+      <div>Abby still processes CS refunds and store credit per the CS split. That is not permission for other agents to edit orders, cancel fulfillments, or issue money.</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Ellison &amp; Fitz — Backend Ops Playbook &nbsp;·&nbsp; <strong>Current as of November 21, 2026</strong></p>
+    <p style="margin-top: 6px;">CS truth stays on the <a href="../">live SOP</a>. Dated history: <a href="../CHANGELOG.md">CHANGELOG</a>.</p>
+  </footer>
+
+  </main>
+</div>
+</body>
+</html>

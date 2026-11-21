@@ -12,10 +12,10 @@ This repo is not a third dump of notes. Use the matching file.
 |---|---|---|
 | [index.html](https://kevinc710.github.io/ef-sops/) | Live customer-support SOP. Current truth of how CS / VA work is done today. | Mike / CS. Rewrite stale lines in place. |
 | [CHANGELOG.md](CHANGELOG.md) | Dated history of what changed, so the SOP body stays current. | Everyone |
-| [ops/](ops/) | Current how for backend ops (Adam's lane). Not a week-by-week recap. | Ops. Keep out of the VA CS pages. |
+| [ops/](https://kevinc710.github.io/ef-sops/ops/) | Current how for backend ops (Adam's lane). Styled HTML playbook, same design system as the CS SOP. Not a week-by-week recap. | Ops. Keep out of the VA CS pages. |
 | [sops/](sops/) | Other live SOPs already on Pages (creator program). | Growth / creator ops |
 
-GitHub Pages already renders markdown the same way as `sops/`. `CHANGELOG.md` and `ops/` stay at those paths so the CS homepage does not change.
+The CS homepage (`index.html`) is unchanged. `CHANGELOG.md` and `sops/` still render as markdown. The ops playbook is a styled HTML page at [ops/](https://kevinc710.github.io/ef-sops/ops/).
 
 ## CS page ownership
 
