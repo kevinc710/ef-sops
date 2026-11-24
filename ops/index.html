@@ -307,8 +307,26 @@
   .callout.kevin ol { padding-left: 20px; margin-top: 8px; }
   .callout.kevin li { font-size: 14px; color: #3a3a3a; margin-bottom: 6px; line-height: 1.55; }
   .callout.kevin li:last-child { margin-bottom: 0; }
+  .callout.verify { border-left-color: var(--warn); background: #fffdf8; }
+  .callout.verify p { font-size: 13px; color: var(--muted); margin: 0; }
+  .callout.verify ul { padding-left: 18px; margin-top: 8px; }
+  .callout.verify li { font-size: 13.5px; color: #3a3a3a; margin-bottom: 6px; line-height: 1.55; }
+  .callout.verify li:last-child { margin-bottom: 0; }
   .order-id { font-family: var(--mono); font-size: 12.5px; font-weight: 600; }
-  .tracker-table { min-width: 860px; }
+  .tracker-table { min-width: 860px; margin-top: 0; }
+  .tracker-group {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: #f3f3f1;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .tracker-card > .tracker-group:first-child { border-top: none; }
+  .cell-empty { color: var(--muted); }
 
   /* ─── LEGEND ─── */
   .legend {
@@ -840,30 +858,170 @@
       <div class="section-header" style="margin-top: 28px;">
         <span class="section-icon">📋</span>
         <span class="section-title" style="font-size: 16px;">Order tracker (backup suppliers)</span>
-        <span class="section-badge updated">As of Nov 21, 2026 2:50 PM CT</span>
+        <span class="section-badge updated">Nov 24, 2026</span>
       </div>
-      <p class="stamp">This is the order-level view of who is fulfilling what through Hart and Lay, so nothing gets lost across the WhatsApp groups.</p>
+      <p class="stamp">Updated Nov 24, 2026 (from Abby's master tracker)</p>
 
-      <div class="badge-legend" aria-label="Status badges">
-        <span class="badge status-shipped"><span class="badge-dot"></span>Shipped</span>
-        <span class="badge status-approved"><span class="badge-dot"></span>Approved, waiting to ship</span>
-        <span class="badge status-kevin"><span class="badge-dot"></span>Waiting on Kevin</span>
-        <span class="badge status-supplier"><span class="badge-dot"></span>Waiting on supplier</span>
-        <span class="badge status-nosource"><span class="badge-dot"></span>No source (refund/swap per can't-source SOP)</span>
-      </div>
-
-      <div class="callout kevin" id="needs-kevin">
-        <h3>Needs Kevin</h3>
+      <div class="callout kevin" id="tracker-actions">
+        <h3>Remaining action items</h3>
         <ol>
-          <li><strong>Nola 12267 / 12896:</strong> white yes/no.</li>
-          <li><strong>Freya 11893 / 11934:</strong> similar color yes/no.</li>
-          <li><strong>Tavish 12914:</strong> confirm only one source ships.</li>
-          <li><strong>Lay's 11/20 "acceptable?"</strong> with no item named, which Kevin answered "yes" on 11/21. Confirm which item.</li>
-          <li><strong>Lay's total</strong> for everything is still outstanding.</li>
+          <li>Process refunds for 12267, 12896, 12926, 11893, 11934, and 11283.</li>
+          <li>Confirm alternative color for 13098 (Kevin).</li>
+          <li>Get shipping confirmation and tracking for 13046.</li>
+          <li>Confirm refund completion for 11756.</li>
         </ol>
       </div>
 
-      <div class="card table-card" style="padding: 0; scroll-margin-top: 80px;">
+      <div class="callout verify" id="to-verify">
+        <h3>To verify</h3>
+        <p>Discrepancies vs earlier WhatsApp notes, not decisions.</p>
+        <ul>
+          <li>Freya 11893 / 11934: marked refund here, but Kevin's Nov 21 reply approved Hart's similar colors. Confirm which is current. 11874 (Butter L) and 11888 (Butter 4XL and Grey 4XL) were also to be asked of Hart and are not tracked here.</li>
+          <li>Tavish 12914: Kevin said on Nov 20 he had bought it himself. Make sure it was not bought twice.</li>
+          <li>12361 and 12247: were on the no-supplier list and are not in this tracker.</li>
+        </ul>
+      </div>
+
+      <div class="badge-legend" aria-label="Status badges">
+        <span class="badge status-risk"><span class="badge-dot"></span>Refund</span>
+        <span class="badge status-approved"><span class="badge-dot"></span>Paid</span>
+        <span class="badge status-approved"><span class="badge-dot"></span>Approved for shipping</span>
+        <span class="badge status-shipped"><span class="badge-dot"></span>Shipped</span>
+        <span class="badge status-kevin"><span class="badge-dot"></span>Needs Kevin</span>
+        <span class="badge status-supplier"><span class="badge-dot"></span>Confirm refund</span>
+        <span class="badge status-nosource"><span class="badge-dot"></span>Refunded / cancelled</span>
+      </div>
+
+      <div class="card table-card tracker-card" style="padding: 0; scroll-margin-top: 80px;">
+        <div class="tracker-group">For refund / cancellation</div>
+        <div class="table-wrap">
+          <table class="sop-table tracker-table table-stack">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Product</th>
+                <th>Supplier</th>
+                <th>Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12267Fitz</td>
+                <td data-label="Product" class="prod">Nola Pleated Clutch</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - No matching item; alternative rejected</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12896Fitz</td>
+                <td data-label="Product" class="prod">Nola Pleated Clutch</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - No matching item; alternative rejected</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12926Fitz</td>
+                <td data-label="Product" class="prod">Maisie Heart Top - White / XL</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - Both suppliers unavailable</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11893Fitz</td>
+                <td data-label="Product" class="prod">Freya Zip Pullover</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - Hart's alternative rejected</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11934Fitz</td>
+                <td data-label="Product" class="prod">Freya Zip Pullover</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - Hart's alternative rejected</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11283Fitz</td>
+                <td data-label="Product" class="prod">Linnea Pearl Top</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-risk">Refund</span></td>
+                <td data-label="Note" class="notes">Refund - Both suppliers unavailable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tracker-group">For shipping / processing</div>
+        <div class="table-wrap">
+          <table class="sop-table tracker-table table-stack">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Product</th>
+                <th>Supplier</th>
+                <th>Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12739Fitz</td>
+                <td data-label="Product" class="prod">Nola Pleated Clutch (similar)</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-approved">Paid</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison11745Fitz</td>
+                <td data-label="Product" class="prod">Vera Wide-Leg Jean</td>
+                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
+                <td data-label="Status"><span class="badge status-approved">Paid</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison12914Fitz</td>
+                <td data-label="Product" class="prod">Tavish Knit Pullover</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
+                <td data-label="Status"><span class="badge status-shipped">Shipped</span></td>
+                <td data-label="Note" class="notes">Shipped (tracking <span class="order-id">YT2632500707030194</span>)</td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison13046Fitz</td>
+                <td data-label="Product" class="prod">Riven Snap Pant (similar)</td>
+                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span><br><span class="badge cherry" style="margin-top: 4px;"><span class="badge-dot"></span>Cherry</span></td>
+                <td data-label="Status"><span class="badge status-approved wrap">Approved for shipping</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tracker-group">Awaiting decision</div>
+        <div class="table-wrap">
+          <table class="sop-table tracker-table table-stack">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Product</th>
+                <th>Supplier</th>
+                <th>Status</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Order" class="order-id">Ellison13098Fitz</td>
+                <td data-label="Product" class="prod">Varen Suede Jacket - Blue / 4XL</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-kevin wrap">Needs Kevin</span></td>
+                <td data-label="Note" class="notes">Choose alternative color: Black, Gray, or Brown (needs Kevin)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tracker-group">Refund confirmation</div>
         <div class="table-wrap">
           <table class="sop-table tracker-table table-stack">
             <thead>
@@ -878,128 +1036,61 @@
             <tbody>
               <tr>
                 <td data-label="Order" class="order-id">Ellison11756Fitz</td>
-                <td data-label="Product" class="prod">Camille Knit Sweater, white S</td>
-                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
-                <td data-label="Status"><span class="badge status-shipped">Shipped</span></td>
-                <td data-label="Note" class="notes">Lay $20.29, tracking sent 11/17. Hart copy cancelled, refund noted 11/18. Confirm the Hart refund lands.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12739Fitz</td>
-                <td data-label="Product" class="prod">Nola Pleated Clutch (similar style)</td>
+                <td data-label="Product" class="prod">White Camille Sweater</td>
                 <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
-                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
-                <td data-label="Note" class="notes">$18.70, Kevin approved 11/16. No tracking yet.</td>
+                <td data-label="Status"><span class="badge status-supplier wrap">Confirm refund</span></td>
+                <td data-label="Note" class="notes">Hart acknowledged refund processing. Confirm completion.</td>
               </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tracker-group">Already refunded / cancelled</div>
+        <div class="table-wrap">
+          <table class="sop-table tracker-table table-stack">
+            <thead>
               <tr>
-                <td data-label="Order" class="order-id">Ellison11745Fitz</td>
-                <td data-label="Product" class="prod">Vera Wide-Leg Jean</td>
-                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
-                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
-                <td data-label="Note" class="notes">Paid 11/17. No tracking yet.</td>
+                <th>Order</th>
+                <th>Product</th>
+                <th>Supplier</th>
+                <th>Status</th>
+                <th>Note</th>
               </tr>
+            </thead>
+            <tbody>
               <tr>
-                <td data-label="Order" class="order-id">Ellison11199Fitz</td>
-                <td data-label="Product" class="prod">(item not named)</td>
-                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
-                <td data-label="Status"><span class="badge status-approved wrap">Approved, waiting to ship</span></td>
-                <td data-label="Note" class="notes">Paid 11/9.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12914Fitz</td>
-                <td data-label="Product" class="prod">Tavish Knit Pullover</td>
-                <td data-label="Supplier"><span class="badge lay wrap"><span class="badge-dot"></span>Lay (similar)</span></td>
-                <td data-label="Status"><span class="badge status-risk wrap">Approved, double-sourcing risk</span></td>
-                <td data-label="Note" class="notes">Kevin said yes to similar 11/19, Abby told Lay to ship 11/20 7:49 PM, Lay quote $26.85. Kevin's 11/20 message says it was already purchased (via Cherry). Confirm only one source ships.</td>
-              </tr>
-              <tr>
-                <td data-label="Order"><span class="order-id">Ellison12267Fitz</span><br><span class="order-id">Ellison12896Fitz</span></td>
-                <td data-label="Product" class="prod">Nola Pleated Clutch, Apricot</td>
-                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
-                <td data-label="Status"><span class="badge status-kevin">Waiting on Kevin</span></td>
-                <td data-label="Note" class="notes">Only white available.</td>
-              </tr>
-              <tr>
-                <td data-label="Order"><span class="order-id">Ellison11893Fitz</span><br><span class="order-id">Ellison11934Fitz</span></td>
-                <td data-label="Product" class="prod">Freya Zip Pullover</td>
-                <td data-label="Supplier"><span class="badge hart"><span class="badge-dot"></span>Hart</span></td>
-                <td data-label="Status"><span class="badge status-kevin">Waiting on Kevin</span></td>
-                <td data-label="Note" class="notes">Similar color only, no price yet.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison11283Fitz</td>
-                <td data-label="Product" class="prod">Linnea Pearl Top (rest of order processed)</td>
-                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
-                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
-                <td data-label="Note" class="notes">Lay "please wait" 11/20.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison13098Fitz</td>
-                <td data-label="Product" class="prod">Varen Suede Jacket, Blue/4XL</td>
-                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
-                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
-                <td data-label="Note" class="notes">No blue, Abby asked which other colors.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison13046Fitz</td>
-                <td data-label="Product" class="prod">Riven Snap Pant</td>
-                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
-                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
-                <td data-label="Note" class="notes">Hart has no match. Lay hasn't answered.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12926Fitz</td>
-                <td data-label="Product" class="prod">Maisie Heart Top, White/XL</td>
-                <td data-label="Supplier"><span class="badge lay"><span class="badge-dot"></span>Lay</span></td>
-                <td data-label="Status"><span class="badge status-supplier wrap">Waiting on supplier</span></td>
-                <td data-label="Note" class="notes">Hart has no identical.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12361Fitz</td>
-                <td data-label="Product" class="prod">Vera Rib Set, Grey/M</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
-                <td data-label="Note" class="notes">Kevin approved a refund 11/11.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12573Fitz</td>
-                <td data-label="Product" class="prod">Elowen Knit Pullover, Ivory/XL</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
-                <td data-label="Note" class="notes">Hart and Lay both out of stock.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12247Fitz</td>
-                <td data-label="Product" class="prod">Aveline Knit Sweater, Pink/L</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
-                <td data-label="Note" class="notes">Kevin said the similar is not close enough.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12751Fitz</td>
-                <td data-label="Product" class="prod">Size 45.5 (product not named)</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
-                <td data-label="Note" class="notes">Lay's max is 44, Hart has no stock.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison12891Fitz</td>
-                <td data-label="Product" class="prod">Rocco Button Top, Coffee/L</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
-                <td data-label="Note" class="notes">Neither has it. Hart asked us to stop repeat inquiries.</td>
-              </tr>
-              <tr>
-                <td data-label="Order" class="order-id">Ellison11661Fitz</td>
-                <td data-label="Product" class="prod">Linnea Pearl Top</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Order" class="order-id prod">Ellison12891Fitz</td>
+                <td data-label="Product" class="cell-empty">—</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-nosource">Refunded</span></td>
                 <td data-label="Note" class="notes"></td>
               </tr>
               <tr>
-                <td data-label="Order" class="order-id">Ellison13065Fitz</td>
-                <td data-label="Product" class="prod">Brielle Flora Cardigan, Coffee/L</td>
-                <td data-label="Supplier"><span class="badge none">None</span></td>
-                <td data-label="Status"><span class="badge status-nosource wrap">No source (refund/swap per can't-source SOP)</span></td>
+                <td data-label="Order" class="order-id prod">Ellison11661Fitz</td>
+                <td data-label="Product" class="cell-empty">—</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-nosource">Refunded</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id prod">Ellison12751Fitz</td>
+                <td data-label="Product" class="cell-empty">—</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-nosource wrap">Cancelled and customer refunded</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id prod">Ellison13065Fitz</td>
+                <td data-label="Product" class="cell-empty">—</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-nosource wrap">Refunded and cancelled</span></td>
+                <td data-label="Note" class="notes"></td>
+              </tr>
+              <tr>
+                <td data-label="Order" class="order-id prod">Ellison12573Fitz</td>
+                <td data-label="Product" class="cell-empty">—</td>
+                <td data-label="Supplier" class="cell-empty">—</td>
+                <td data-label="Status"><span class="badge status-nosource">Refunded</span></td>
                 <td data-label="Note" class="notes"></td>
               </tr>
             </tbody>

@@ -4,6 +4,10 @@ Live SOP pages stay current. This file is the dated history of what changed.
 
 Do not stack "Updated Aug 14" footnotes on the CS page. Put the date here and rewrite the SOP body in place.
 
+## 2026-11-24
+
+- Updated the Order tracker section of the ops playbook from Abby's Nov 24, 2026 master tracker. The section is marked "Updated Nov 24, 2026 (from Abby's master tracker)." Nov 21 order rows are replaced with for-refund, shipping/processing, awaiting-decision, refund-confirmation, and already-refunded rows. Remaining action items and a To verify box (discrepancies vs earlier WhatsApp notes, not decisions) sit at the top of the section. The CS page and the other ops sections are unchanged.
+
 ## 2026-11-21
 
 - Added an "Order tracker (backup suppliers)" section to the ops playbook, as of Nov 21, 2026 2:50 PM CT, so it is clear who is fulfilling what at order level through Hart and Lay. It includes a Needs Kevin callout, status-badged order rows, and Kevin's Nov 14 can't-source rule (swap or refund, don't wait). Cherry remains the default; Cherry's chat has no per-order backlog beyond the Faye Brushed Pullover batch waiting on the factory. Open items and the per-product coverage table were updated to match. The CS page is unchanged.
